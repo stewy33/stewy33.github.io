@@ -1,0 +1,20 @@
+title: Stewy Slocum
+author: Stewart Slocum
+baseurl: "/"
+description: Stewy Slocum's website
+profile_url: "http://stewyslocum.com"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+excerpt_separator: <!--more-->
+plugins:
+  - jekyll-feed
+  - jekyll-scholar
+exclude:
+  - Gemfile
+  - Gemfile.lock
+kramdown:
+  input: GFM
+  auto_ids: true
+  syntax_highlighter: rouge
