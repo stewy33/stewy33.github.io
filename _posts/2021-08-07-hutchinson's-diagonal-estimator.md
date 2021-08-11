@@ -14,7 +14,7 @@ tags: optimization
 
 In modern machine learning with large deep models, explicit computation of the Hessian matrix is intractable. However, the Hessian matrix provides valuable information for optimization, studying generalization, and for other purposes. But even if we can't calculate the full Hessian, can we effectively approximate it?
 
-![Neural Network Loss Surfaces]({{ '/assets/images/flat-minimum.png' | relative_url }}) {: style="width: 80%;" class="center"} *Fig. 1. Flat minima have been linked to improved generalization. The magnitude of the eigenvalues of the Hessian provide one way to characterize sharpness/flatness {% cite Keskar2017OnLT %}.*
+![Neural Network Loss Surfaces]({{ '/assets/images/flat-minimum.png' | relative_url }}) *Fig. 1. Flat minima have been linked to improved generalization. The magnitude of the eigenvalues of the Hessian provide one way to characterize sharpness/flatness {% cite Keskar2017OnLT %}.*
 
 There has been significant work towards efficient approximation of the Hessian, most notably in the form of low-rank updates like [L-BFGS](https://en.wikipedia.org/wiki/Limited-memory_BFGS). This approach work well in traditional optimization settings, but is relatively slow and generally doesn't work in stochastic settings {% cite bollapragada2018progressive %}.
 

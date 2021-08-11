@@ -129,7 +129,7 @@
 /** Reset some basic elements */
 body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, dl, dd, ol, ul, figure { margin: 0; padding: 0; }
 
-hr { display: block; height: 1px; border: 0; border-top: 1px solid #007bff; margin: 2em 0; padding: 0; }
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #828282; margin: 2em 0; padding: 0; }
 
 /** Basic styling */
 body { font: 400 16px/1.6 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #212529; background-color: #fdfdfd; -webkit-text-size-adjust: 100%; -webkit-font-feature-settings: "kern" 1; -moz-font-feature-settings: "kern" 1; -o-font-feature-settings: "kern" 1; font-feature-settings: "kern" 1; font-kerning: normal; }
@@ -204,6 +204,8 @@ pre .lineno { font-size: 14.4px; }
 
 .social-media-list .icon { padding-right: 5px; }
 .social-media-list li + li { padding-top: 5px; }
+
+p.lead { font-size: 16px; }
 
 /** Site header */
 .site-header { min-height: 90px; position: relative; }
