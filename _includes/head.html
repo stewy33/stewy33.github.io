@@ -11,8 +11,8 @@
     <meta name="title" property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
     <meta name="description" property="og:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
-    <link rel="shortcut icon" href="'assets/images/favicon.png'">
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="shortcut icon" href="{{ "assets/images/favicon.png" | relative_url }}">
+    <link rel="stylesheet" href="{{ "assets/css/main.css" | relative_url }}">
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
 
     <!-- For Latex -->

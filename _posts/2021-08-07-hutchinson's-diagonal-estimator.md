@@ -8,6 +8,8 @@ tags: optimization
 
 > In this post, we'll take a look at a method of approximating large Hessian matrices use a stochastic diagonal estimator. Hutchinson's method can be used for optimization and loss-landscape analysis in deep neural networks.
 
+<!--more-->
+
 # Hutchinson's Diagonal Estimator
 
 In modern machine learning with large deep models, explicit computation of the Hessian matrix is intractable. However, the Hessian matrix provides valuable information for optimization, studying generalization, and for other purposes. But even if we can't calculate the full Hessian, can we effectively approximate it?
