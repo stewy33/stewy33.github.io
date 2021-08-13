@@ -17,7 +17,7 @@
   color: $text-color;
 
   &:hover {
-    color: $blue;
+    color: $brand-color;
     text-decoration: none;
     cursor: pointer;
   }
@@ -48,8 +48,8 @@
     }
 
     &:hover {
-      color: $blue;
-      border-bottom: 1px solid $blue;
+      color: $brand-color;
+      border-bottom: 1px solid $brand-color;
       text-decoration: none;
       cursor: pointer;
     }
@@ -173,9 +173,9 @@
     padding: 1px 5px;
     margin-left: 5px;
     &:hover {
-      border: 1px solid $blue;
+      border: 1px solid $brand-color;
       text-decoration: none;
-      color: $blue;
+      color: $brand-color;
     }
   }
 }
@@ -246,11 +246,19 @@
     padding-bottom: 1px;
 
     &:hover {
-      color: $blue;
-      border-bottom: 1px solid $blue;
+      color: $brand-color;
+      border-bottom: 1px solid $brand-color;
       padding-bottom: 1px;
       text-decoration: none;
     }
   }
 
+}
+
+p.lead {
+  font-size: 16px;
+}
+
+.circular {
+  border-radius: 50%;
 }

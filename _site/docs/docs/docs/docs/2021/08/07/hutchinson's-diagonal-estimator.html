@@ -111,6 +111,8 @@
   <p>In this post, we’ll take a look at a method of approximating large Hessian matrices use a stochastic diagonal estimator. Hutchinson’s method can be used for optimization and loss-landscape analysis in deep neural networks.</p>
 </blockquote>
 
+<!--more-->
+
 <h1 id="hutchinsons-diagonal-estimator">Hutchinson’s Diagonal Estimator</h1>
 
 <p>In modern machine learning with large deep models, explicit computation of the Hessian matrix is intractable. However, the Hessian matrix provides valuable information for optimization, studying generalization, and for other purposes. But even if we can’t calculate the full Hessian, can we effectively approximate it?</p>
@@ -272,7 +274,7 @@
 <h2 id="references">References</h2>
 
 <ol class="bibliography"><li><span id="Keskar2017OnLT">Keskar, N., Mudigere, D., Nocedal, J., Smelyanskiy, M., &amp; Tang, P. T. P. (2017). On Large-Batch Training for Deep Learning: Generalization Gap and Sharp Minima. <i>ArXiv</i>, <i>abs/1609.04836</i>.</span></li>
-<li><span id="bollapragada2018progressive">Bollapragada, R., Nocedal, J., Mudigere, D., Shi, H.-J., &amp; Tang, P. T. P. (2018). A progressive batching L-BFGS method for machine learning. <i>International Conference on Machine Learning</i>, 620–629.</span></li>
+<li><span id="bollapragada2018progressive">Bollapragada, R., Nocedal, J., Mudigere, D., Shi, H.-J., &amp; Tang, P. T. P. (2018). A progressive batching L-BFGS method for machine learning. <i>International Conference on Machine Learning</i>, 620–629. https://arxiv.org/abs/1802.05374</span></li>
 <li><span id="LeCun1989OptimalBD">LeCun, Y., Denker, J., &amp; Solla, S. (1989). Optimal Brain Damage. <i>NIPS</i>.</span></li>
 <li><span id="Hassibi1992SecondOD">Hassibi, B., &amp; Stork, D. (1992). Second Order Derivatives for Network Pruning: Optimal Brain Surgeon. <i>NIPS</i>.</span></li>
 <li><span id="Pearlmutter1994FastEM">Pearlmutter, B. A. (1994). Fast Exact Multiplication by the Hessian. <i>Neural Computation</i>, <i>6</i>, 147–160.</span></li></ol>

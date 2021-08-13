@@ -10,8 +10,6 @@ tags: optimization
 
 <!--more-->
 
-# Hutchinson's Diagonal Estimator
-
 In modern machine learning with large deep models, explicit computation of the Hessian matrix is intractable. However, the Hessian matrix provides valuable information for optimization, studying generalization, and for other purposes. But even if we can't calculate the full Hessian, can we effectively approximate it?
 
 ![Neural Network Loss Surfaces]({{ '/assets/images/flat-minimum.png' | relative_url }}) *Fig. 1. Flat minima have been linked to improved generalization. The magnitude of the eigenvalues of the Hessian provide one way to characterize sharpness/flatness {% cite Keskar2017OnLT %}.*
@@ -62,9 +60,9 @@ Hutchinson's original estimator is for the trace of a matrix. This estimator is 
 
 To estimate the trace, we draw random vectors $$z$$ from a distribution with mean zero and variance one (typically the [Rademacher distribution](https://en.wikipedia.org/wiki/Rademacher_distribution)). We can then estimate the trace of a matrix as $$\mathbb{E}[z^\top H z] = \text{trace}(H)$$.
 
-Claim: Let $$z$$ a random vector with $$\mathbb{E}[z]=0$$, $$\mathbb{V}[z]=1$$, and independent entries. Then $$\mathbb{E}[z^\top H z] = \text{trace}(H)$$.
+**Theorem:** Let $$z$$ a random vector with $$\mathbb{E}[z]=0$$, $$\mathbb{V}[z]=1$$, and independent entries. Then $$\mathbb{E}[z^\top H z] = \text{trace}(H)$$.
 
-Proof:
+*Proof.*
 
 $$
 \begin{align}
@@ -85,7 +83,7 @@ $$
 \begin{align}
   \mathbb{E}[z^\top H z] &= \sum\limits_{i=1}^n H_{1i} \mathbb{E}[z_1 z_i] + \sum\limits_{i=1}^n H_{2i} \mathbb{E}[z_2 z_i] + ... + \sum\limits_{i=1}^n H_{ni} \mathbb{E}[z_n z_i] \\
   &= H_{11} + H_{22} + ... + H_{nn} \\
-  &= \text{trace}(H)
+  &= \text{trace}(H) \tag*{$\blacksquare$}
 \end{align}
 $$
 
@@ -93,9 +91,9 @@ $$
 
 The basic idea from the trace estimator can be modified to give an estimator for the diagonal rather than the trace.
 
-Claim: Let $$z$$ be a random variable $$z$$ with $$\mathbb{E}[z]=0$$, $$\mathbb{V}[z]=1$$, and independent entries. Then $$\mathbb{E}[z \odot H z] = \text{diag}(H)$$.
+**Theorem:** Let $$z$$ be a random variable $$z$$ with $$\mathbb{E}[z]=0$$, $$\mathbb{V}[z]=1$$, and independent entries. Then $$\mathbb{E}[z \odot H z] = \text{diag}(H)$$.
 
-Proof:
+*Proof.*
 
 $$
 \begin{align*}
@@ -115,7 +113,7 @@ $$
     &= \begin{bmatrix}
     H_{11} \\ H_{22} \\ ... \\ H_{nn}
     \end{bmatrix} \\
-    &= \text{diag}(H)
+    &= \text{diag}(H) \tag*{$\blacksquare$}
 \end{align*}
 $$
 
@@ -123,13 +121,13 @@ $$
 
 Now let's calculate the variance of Hutchinson's diagonal estimator.
 
-Claim: Let $$z \sim \text{Rademacher}$$. Then
+**Theorem:** Let $$z \sim \text{Rademacher}$$. Then
 
 $$\mathbb{V}[z \odot H z] = \begin{bmatrix}||H_1||^2 \\ ||H_2||^2 \\ ... \\ ||H_n||^2\end{bmatrix} - \text{diag}(H)^2$$
 
 where $$H_k$$ is the k-th row of $$H$$.
 
-Proof: Let us consider each entry $$k$$ separately:
+*Proof.* Let us consider each entry $$k$$ separately:
 
 $$
 \begin{align}
@@ -138,7 +136,7 @@ $$
     &= \mathbb{V}[H_{k1} z_k z_1 + ... + H_{kk} z_k z_k + ... + H_{kn} z_k z_n] \\
     &= \sum\limits_{i=0}^n \sum\limits_{j=0}^n \text{Cov}(H_{ki} z_k z_i, H_{kj} z_k z_j) \\
     &= \sum\limits_{i=0}^n \sum\limits_{j=0}^n \mathbb{E}[(H_{ki} z_k z_i)(H_{kj} z_k z_j)] - \mathbb{E}[H_{ki} z_k z_i] \mathbb{E}[H_{kj} z_k z_j] \\
-    &= \sum\limits_{i=0}^n \sum\limits_{j=0}^n H_{ki}H_{kj} (\mathbb{E}[z_k^2 z_i z_)] - \mathbb{E}[z_k z_i] \mathbb{E}[z_k z_j]) \\
+    &= \sum\limits_{i=0}^n \sum\limits_{j=0}^n H_{ki}H_{kj} (\mathbb{E}[z_k^2 z_i z_)] - \mathbb{E}[z_k z_i] \mathbb{E}[z_k z_j])
 \end{align}
 $$
 
@@ -184,19 +182,10 @@ Putting this all together, we get the full variance
 $$
 \begin{align}
     \mathbb{V}[z \odot H z] &= \begin{bmatrix}||H_1||^2 \\ ||H_2||^2 \\ ... \\ ||H_n||^2\end{bmatrix} - \text{diag}(H)^2
-\end{align}
+\end{align} \tag*{$\blacksquare$}
 $$
 
-
-
-Note that the entries of vector of variances are proportional to
-
-$$
-||H_k^2||
-$$
-
-which grows linearly with the number of variables in the Hessian.
-
+Interestingly, this variance is equal to the squared L-2 norm of the off-diagonal elements of each row. So even though this variance grows like $$O(n)$$ with the number of variables in the Hessian, if the assumption that the off-diagonal elements of the Hessian are small is true, then this variance remains small.
 
 
 ## References

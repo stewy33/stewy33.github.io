@@ -20,14 +20,9 @@ $grey-color:       #828282 !default;
 $grey-color-light: lighten($grey-color, 40%) !default;
 $grey-color-dark:  darken($grey-color, 25%) !default;
 
-$crimson-color:         #e01f1f;
-$crimson-color-light:   #f9493f;
-$crimson-color-very-light:   lighten($crimson-color, 40%) !default;
-$crimson-color-dark:    #b71212;
-
+$green: #4eb685;
 $blue: #007bff;
-
-$orange-color:          #ff8f26;
+$brand-color: $green;
 
 // Width of the content area
 $content-width:    800px !default;

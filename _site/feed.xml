@@ -1,10 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-08-13T14:03:25-04:00</updated><id>/feed.xml</id><title type="html">Stewy Slocum</title><subtitle>Stewy Slocum's website</subtitle><author><name>Stewart Slocum</name></author><entry><title type="html">Hutchinson’s Diagonal Estimator</title><link href="/2021/08/07/hutchinson's-diagonal-estimator.html" rel="alternate" type="text/html" title="Hutchinson’s Diagonal Estimator" /><published>2021-08-07T00:00:00-04:00</published><updated>2021-08-07T00:00:00-04:00</updated><id>/2021/08/07/hutchinson's-diagonal-estimator</id><content type="html" xml:base="/2021/08/07/hutchinson's-diagonal-estimator.html">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-08-13T17:29:09-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Stewy Slocum</title><subtitle>Stewy Slocum's website</subtitle><author><name>Stewart Slocum</name></author><entry><title type="html">Hutchinson’s Diagonal Estimator</title><link href="http://localhost:4000/2021/08/07/hutchinson's-diagonal-estimator.html" rel="alternate" type="text/html" title="Hutchinson’s Diagonal Estimator" /><published>2021-08-07T00:00:00-04:00</published><updated>2021-08-07T00:00:00-04:00</updated><id>http://localhost:4000/2021/08/07/hutchinson's-diagonal-estimator</id><content type="html" xml:base="http://localhost:4000/2021/08/07/hutchinson's-diagonal-estimator.html">&lt;blockquote&gt;
   &lt;p&gt;In this post, we’ll take a look at a method of approximating large Hessian matrices using a stochastic diagonal estimator. Hutchinson’s method can be used for optimization and loss-landscape analysis in deep neural networks.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;!--more--&gt;
-
-&lt;h1 id=&quot;hutchinsons-diagonal-estimator&quot;&gt;Hutchinson’s Diagonal Estimator&lt;/h1&gt;
 
 &lt;p&gt;In modern machine learning with large deep models, explicit computation of the Hessian matrix is intractable. However, the Hessian matrix provides valuable information for optimization, studying generalization, and for other purposes. But even if we can’t calculate the full Hessian, can we effectively approximate it?&lt;/p&gt;
 
@@ -50,9 +48,9 @@
 
 &lt;p&gt;To estimate the trace, we draw random vectors \(z\) from a distribution with mean zero and variance one (typically the &lt;a href=&quot;https://en.wikipedia.org/wiki/Rademacher_distribution&quot;&gt;Rademacher distribution&lt;/a&gt;). We can then estimate the trace of a matrix as \(\mathbb{E}[z^\top H z] = \text{trace}(H)\).&lt;/p&gt;
 
-&lt;p&gt;Claim: Let \(z\) a random vector with \(\mathbb{E}[z]=0\), \(\mathbb{V}[z]=1\), and independent entries. Then \(\mathbb{E}[z^\top H z] = \text{trace}(H)\).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Theorem:&lt;/strong&gt; Let \(z\) a random vector with \(\mathbb{E}[z]=0\), \(\mathbb{V}[z]=1\), and independent entries. Then \(\mathbb{E}[z^\top H z] = \text{trace}(H)\).&lt;/p&gt;
 
-&lt;p&gt;Proof:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Proof.&lt;/em&gt;&lt;/p&gt;
 
 \[\begin{align}
 	\mathbb{E}[z^\top H z] &amp;amp;= \mathbb{E}[\begin{bmatrix}z_1 \\ z_2 \\ ... \\ z_n\end{bmatrix}^\top \begin{bmatrix}H_{11} z_1 + H_{12} z_2 + ... + H_{1n} z_n \\ H_{12} z_1 + H_{22} z_2 + ... + H_{2n} z_n \\ ... \\ H_{n1} z_1 + H_{n2} z_2 + ... + H_{nn} z_n\end{bmatrix}] \\
@@ -70,16 +68,16 @@
 \[\begin{align}
   \mathbb{E}[z^\top H z] &amp;amp;= \sum\limits_{i=1}^n H_{1i} \mathbb{E}[z_1 z_i] + \sum\limits_{i=1}^n H_{2i} \mathbb{E}[z_2 z_i] + ... + \sum\limits_{i=1}^n H_{ni} \mathbb{E}[z_n z_i] \\
   &amp;amp;= H_{11} + H_{22} + ... + H_{nn} \\
-  &amp;amp;= \text{trace}(H)
+  &amp;amp;= \text{trace}(H) \tag*{$\blacksquare$}
 \end{align}\]
 
-&lt;h3 id=&quot;hutchinsons-diagonal-estimator-1&quot;&gt;Hutchinson’s Diagonal Estimator&lt;/h3&gt;
+&lt;h3 id=&quot;hutchinsons-diagonal-estimator&quot;&gt;Hutchinson’s Diagonal Estimator&lt;/h3&gt;
 
 &lt;p&gt;The basic idea from the trace estimator can be modified to give an estimator for the diagonal rather than the trace.&lt;/p&gt;
 
-&lt;p&gt;Claim: Let \(z\) be a random variable \(z\) with \(\mathbb{E}[z]=0\), \(\mathbb{V}[z]=1\), and independent entries. Then \(\mathbb{E}[z \odot H z] = \text{diag}(H)\).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Theorem:&lt;/strong&gt; Let \(z\) be a random variable \(z\) with \(\mathbb{E}[z]=0\), \(\mathbb{V}[z]=1\), and independent entries. Then \(\mathbb{E}[z \odot H z] = \text{diag}(H)\).&lt;/p&gt;
 
-&lt;p&gt;Proof:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Proof.&lt;/em&gt;&lt;/p&gt;
 
 \[\begin{align*}
     \mathbb{E}[z \odot Hz] &amp;amp;= \mathbb{E}[
@@ -98,18 +96,18 @@
     &amp;amp;= \begin{bmatrix}
     H_{11} \\ H_{22} \\ ... \\ H_{nn}
     \end{bmatrix} \\
-    &amp;amp;= \text{diag}(H)
+    &amp;amp;= \text{diag}(H) \tag*{$\blacksquare$}
 \end{align*}\]
 
 &lt;p&gt;Now let’s calculate the variance of Hutchinson’s diagonal estimator.&lt;/p&gt;
 
-&lt;p&gt;Claim: Let \(z \sim \text{Rademacher}\). Then&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Theorem:&lt;/strong&gt; Let \(z \sim \text{Rademacher}\). Then&lt;/p&gt;
 
 \[\mathbb{V}[z \odot H z] = \begin{bmatrix}||H_1||^2 \\ ||H_2||^2 \\ ... \\ ||H_n||^2\end{bmatrix} - \text{diag}(H)^2\]
 
 &lt;p&gt;where \(H_k\) is the k-th row of \(H\).&lt;/p&gt;
 
-&lt;p&gt;Proof: Let us consider each entry \(k\) separately:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Proof.&lt;/em&gt; Let us consider each entry \(k\) separately:&lt;/p&gt;
 
 \[\begin{align}
     (\mathbb{V}[z \odot H z])_k &amp;amp;= \mathbb{V}[z_k \odot (H z)_k] \\
@@ -117,7 +115,7 @@
     &amp;amp;= \mathbb{V}[H_{k1} z_k z_1 + ... + H_{kk} z_k z_k + ... + H_{kn} z_k z_n] \\
     &amp;amp;= \sum\limits_{i=0}^n \sum\limits_{j=0}^n \text{Cov}(H_{ki} z_k z_i, H_{kj} z_k z_j) \\
     &amp;amp;= \sum\limits_{i=0}^n \sum\limits_{j=0}^n \mathbb{E}[(H_{ki} z_k z_i)(H_{kj} z_k z_j)] - \mathbb{E}[H_{ki} z_k z_i] \mathbb{E}[H_{kj} z_k z_j] \\
-    &amp;amp;= \sum\limits_{i=0}^n \sum\limits_{j=0}^n H_{ki}H_{kj} (\mathbb{E}[z_k^2 z_i z_)] - \mathbb{E}[z_k z_i] \mathbb{E}[z_k z_j]) \\
+    &amp;amp;= \sum\limits_{i=0}^n \sum\limits_{j=0}^n H_{ki}H_{kj} (\mathbb{E}[z_k^2 z_i z_)] - \mathbb{E}[z_k z_i] \mathbb{E}[z_k z_j])
 \end{align}\]
 
 &lt;p&gt;When \(i \neq j\), we also know that at least one of \(i, j \neq k\). WLOG suppose \(i \neq k\). Then
@@ -154,13 +152,9 @@
 
 \[\begin{align}
     \mathbb{V}[z \odot H z] &amp;amp;= \begin{bmatrix}||H_1||^2 \\ ||H_2||^2 \\ ... \\ ||H_n||^2\end{bmatrix} - \text{diag}(H)^2
-\end{align}\]
+\end{align} \tag*{$\blacksquare$}\]
 
-&lt;p&gt;Note that the entries of vector of variances are proportional to&lt;/p&gt;
-
-\[||H_k^2||\]
-
-&lt;p&gt;which grows linearly with the number of variables in the Hessian.&lt;/p&gt;
+&lt;p&gt;Interestingly, this variance is equal to the squared L-2 norm of the off-diagonal elements of each row. So even though this variance grows like \(O(n)\) with the number of variables in the Hessian, if the assumption that the off-diagonal elements of the Hessian are small is true, then this variance remains small.&lt;/p&gt;
 
 &lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
 

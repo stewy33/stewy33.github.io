@@ -140,7 +140,7 @@ body { font: 400 16px/1.6 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-
 
 .twitter-share-button { padding-top: 1px; }
 
-.table-of-content li { font-size: 96%; color: #ffffff; list-style-type: disc; }
+.table-of-content li { font-size: 96%; color: #4eb685; list-style-type: disc; }
 
 .page-navigation { font-size: 90%; display: block; width: 100%; overflow: hidden; }
 .page-navigation a { display: block; overflow: hidden; width: 50%; float: left; margin: 1em 0; }
@@ -173,7 +173,7 @@ table.info th { text-align: center; border-bottom: 1px solid #e8e8e8; }
 h1, h2, h3, h4, h5, h6 { font-weight: 400; }
 
 /** Links */
-a { color: #007bff; text-decoration: none; }
+a { color: #4eb685; text-decoration: none; }
 a:hover { text-decoration: underline; }
 .social-media-list a:hover { text-decoration: none; }
 .social-media-list a:hover .username { text-decoration: underline; }
@@ -205,20 +205,18 @@ pre .lineno { font-size: 14.4px; }
 .social-media-list .icon { padding-right: 5px; }
 .social-media-list li + li { padding-top: 5px; }
 
-p.lead { font-size: 16px; }
-
 /** Site header */
 .site-header { min-height: 90px; position: relative; }
 
 .site-title { font-size: 26px; font-weight: 600; line-height: 57.6px; letter-spacing: -1px; margin-bottom: 0; float: left; color: #212529; }
-.site-title:hover { color: #007bff; text-decoration: none; cursor: pointer; }
+.site-title:hover { color: #4eb685; text-decoration: none; cursor: pointer; }
 
 .site-nav { float: right; text-align: right; line-height: 57.6px; padding-right: 10px; font-size: 1.25rem; }
 .site-nav .nav-trigger { display: none; }
 .site-nav .menu-icon { display: none; }
 .site-nav .page-link { color: #212529; line-height: 1.6; }
 .site-nav .page-link:not(:last-child) { margin-right: 20px; }
-.site-nav .page-link:hover { color: #007bff; border-bottom: 1px solid #007bff; text-decoration: none; cursor: pointer; }
+.site-nav .page-link:hover { color: #4eb685; border-bottom: 1px solid #4eb685; text-decoration: none; cursor: pointer; }
 @media screen and (max-width: 600px) { .site-nav { position: absolute; top: 9px; right: 15px; background-color: #fdfdfd; border: 1px solid #e8e8e8; border-radius: 5px; text-align: right; }
   .site-nav label[for="nav-trigger"] { display: block; float: right; width: 36px; height: 36px; z-index: 2; cursor: pointer; }
   .site-nav .menu-icon { display: block; float: right; width: 36px; height: 26px; line-height: 0; padding-top: 10px; text-align: center; }
@@ -244,7 +242,7 @@ p.lead { font-size: 16px; }
 
 .post-meta { font-size: 14px; color: #828282; }
 .post-meta a.post-tag { border-radius: 20px; border: 1px solid #828282; color: #828282; padding: 1px 5px; margin-left: 5px; }
-.post-meta a.post-tag:hover { border: 1px solid #007bff; text-decoration: none; color: #007bff; }
+.post-meta a.post-tag:hover { border: 1px solid #4eb685; text-decoration: none; color: #4eb685; }
 
 .post-link { display: block; font-size: 24px; }
 
@@ -262,4 +260,8 @@ p.lead { font-size: 16px; }
 .post-content h4 { font-size: 18.4px; font-weight: 800; }
 @media screen and (max-width: 800px) { .post-content h4 { font-size: 18px; } }
 .post-content a { border-bottom: 1px dotted #bbb; padding-bottom: 1px; }
-.post-content a:hover { color: #007bff; border-bottom: 1px solid #007bff; padding-bottom: 1px; text-decoration: none; }
+.post-content a:hover { color: #4eb685; border-bottom: 1px solid #4eb685; padding-bottom: 1px; text-decoration: none; }
+
+p.lead { font-size: 16px; }
+
+.circular { border-radius: 50%; }
