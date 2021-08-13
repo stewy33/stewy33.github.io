@@ -6,7 +6,7 @@ date: 2021-08-07
 tags: optimization
 ---
 
-> In this post, we'll take a look at a method of approximating large Hessian matrices use a stochastic diagonal estimator. Hutchinson's method can be used for optimization and loss-landscape analysis in deep neural networks.
+> In this post, we'll take a look at a method of approximating large Hessian matrices using a stochastic diagonal estimator. Hutchinson's method can be used for optimization and loss-landscape analysis in deep neural networks.
 
 <!--more-->
 
@@ -18,7 +18,7 @@ In modern machine learning with large deep models, explicit computation of the H
 
 There has been significant work towards efficient approximation of the Hessian, most notably in the form of low-rank updates like [L-BFGS](https://en.wikipedia.org/wiki/Limited-memory_BFGS). This approach work well in traditional optimization settings, but is relatively slow and generally doesn't work in stochastic settings {% cite bollapragada2018progressive %}.
 
-Alternatively, there has also been a variety of work old and new to estimate the diagonal of the Hessian as a way of approximating the matrix as a whole, for pruning {% cite LeCun1989OptimalBD %}, {% cite Hassibi1992SecondOD %} analyzing the loss landscape {% cite Yao2020PyHessianNN % }, and optimization {% cite Yao2021ADAHESSIANAA %}. It has been argued that the diagonal is a good approximation to the Hessian for machine learning problems, and that diagonal elements tend to be much larger than off-diagonal elements.
+Alternatively, there has also been a variety of work old and new to estimate the diagonal of the Hessian as a way of approximating the matrix as a whole, for pruning {% cite LeCun1989OptimalBD %}, {% cite Hassibi1992SecondOD %} analyzing the loss landscape {% cite Yao2020PyHessianNN %}, and optimization {% cite Yao2021ADAHESSIANAA %}. It has been argued that the diagonal is a good approximation to the Hessian for machine learning problems, and that diagonal elements tend to be much larger than off-diagonal elements.
 
 However, calculating the diagonal of the Hessian is not straightforward. Automatic differentiation libraries are designed to make large computations in parallel, so naively calculating diagonal terms of the Hessian one-by-one $$\frac{\partial^2 L(x)}{\partial x_1^2}, \frac{\partial^2 L(x)}{\partial x_2^2}, ..., \frac{\partial^2 L(x)}{\partial x_n^2}$$ requires $$n$$ backprop operations and isn't computationally feasible. However, we can estimate this diagonal relatively efficiently using randomized linear algebra in the form of Hutchinson's estimator.
 
@@ -32,7 +32,7 @@ $$
 H(x) v \approx \frac{g(x + rv) - g(x - rv)}{2r}
 $$
 
-The error of this approximation is $O(r)$, which means it can be quite accurate when $r$ is small. However, as $r$ becomes small, rounding errors pile up in the numerator. While not accurate enough for every application, the finite difference approximation is simple and cheap (2 gradient evaluations).
+The error of this approximation is $$ O ( r) $$, which means it can be quite accurate when $$r$$ is small. However, as $$r$$ becomes small, rounding errors pile up in the numerator. While not accurate enough for every application, the finite difference approximation is simple and cheap (2 gradient evaluations).
 
 ### 2. Product Rule Trick
 
@@ -91,7 +91,7 @@ $$
 
 ### Hutchinson's Diagonal Estimator
 
-The basic idea from the trace estimator can be modified to give an estimator for the diagonal rather than the trace. We again draw 
+The basic idea from the trace estimator can be modified to give an estimator for the diagonal rather than the trace.
 
 Claim: Let $$z$$ be a random variable $$z$$ with $$\mathbb{E}[z]=0$$, $$\mathbb{V}[z]=1$$, and independent entries. Then $$\mathbb{E}[z \odot H z] = \text{diag}(H)$$.
 
@@ -121,7 +121,7 @@ $$
 
 
 
-Now let's calculate the variance of this estimator.
+Now let's calculate the variance of Hutchinson's diagonal estimator.
 
 Claim: Let $$z \sim \text{Rademacher}$$. Then
 

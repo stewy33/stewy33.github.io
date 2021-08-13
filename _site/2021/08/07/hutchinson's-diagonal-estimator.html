@@ -18,16 +18,14 @@
 
     <title>Hutchinson&#39;s Diagonal Estimator</title>
     <meta name="title" property="og:title" content="Hutchinson&#39;s Diagonal Estimator">
-    <meta name="description" property="og:description" content="In this post, we’ll take a look at a method of approximating large Hessian matrices use a stochastic diagonal estimator. Hutchinson’s method can be used for ...">
+    <meta name="description" property="og:description" content="In this post, we’ll take a look at a method of approximating large Hessian matrices using a stochastic diagonal estimator. Hutchinson’s method can be used fo...">
 
     <link rel="shortcut icon" href="/assets/images/favicon.png">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="canonical" href="/2021/08/07/hutchinson's-diagonal-estimator.html">
 
     <!-- For Latex -->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>-->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LJGHV07M45"></script>
@@ -108,7 +106,7 @@
 
   <div class="post-content" itemprop="articleBody">
     <blockquote>
-  <p>In this post, we’ll take a look at a method of approximating large Hessian matrices use a stochastic diagonal estimator. Hutchinson’s method can be used for optimization and loss-landscape analysis in deep neural networks.</p>
+  <p>In this post, we’ll take a look at a method of approximating large Hessian matrices using a stochastic diagonal estimator. Hutchinson’s method can be used for optimization and loss-landscape analysis in deep neural networks.</p>
 </blockquote>
 
 <!--more-->
@@ -121,7 +119,7 @@
 
 <p>There has been significant work towards efficient approximation of the Hessian, most notably in the form of low-rank updates like <a href="https://en.wikipedia.org/wiki/Limited-memory_BFGS">L-BFGS</a>. This approach work well in traditional optimization settings, but is relatively slow and generally doesn’t work in stochastic settings <a class="citation" href="#bollapragada2018progressive">(Bollapragada et al., 2018)</a>.</p>
 
-<p>Alternatively, there has also been a variety of work old and new to estimate the diagonal of the Hessian as a way of approximating the matrix as a whole, for pruning <a class="citation" href="#LeCun1989OptimalBD">(LeCun et al., 1989)</a>, <a class="citation" href="#Hassibi1992SecondOD">(Hassibi &amp; Stork, 1992)</a> analyzing the loss landscape (missing reference). It has been argued that the diagonal is a good approximation to the Hessian for machine learning problems, and that diagonal elements tend to be much larger than off-diagonal elements.</p>
+<p>Alternatively, there has also been a variety of work old and new to estimate the diagonal of the Hessian as a way of approximating the matrix as a whole, for pruning <a class="citation" href="#LeCun1989OptimalBD">(LeCun et al., 1989)</a>, <a class="citation" href="#Hassibi1992SecondOD">(Hassibi &amp; Stork, 1992)</a> analyzing the loss landscape <a class="citation" href="#Yao2020PyHessianNN">(Yao et al., 2020)</a>, and optimization <a class="citation" href="#Yao2021ADAHESSIANAA">(Yao et al., 2021)</a>. It has been argued that the diagonal is a good approximation to the Hessian for machine learning problems, and that diagonal elements tend to be much larger than off-diagonal elements.</p>
 
 <p>However, calculating the diagonal of the Hessian is not straightforward. Automatic differentiation libraries are designed to make large computations in parallel, so naively calculating diagonal terms of the Hessian one-by-one \(\frac{\partial^2 L(x)}{\partial x_1^2}, \frac{\partial^2 L(x)}{\partial x_2^2}, ..., \frac{\partial^2 L(x)}{\partial x_n^2}\) requires \(n\) backprop operations and isn’t computationally feasible. However, we can estimate this diagonal relatively efficiently using randomized linear algebra in the form of Hutchinson’s estimator.</p>
 
@@ -133,7 +131,7 @@
 
 \[H(x) v \approx \frac{g(x + rv) - g(x - rv)}{2r}\]
 
-<p>The error of this approximation is $O(r)$, which means it can be quite accurate when $r$ is small. However, as $r$ becomes small, rounding errors pile up in the numerator. While not accurate enough for every application, the finite difference approximation is simple and cheap (2 gradient evaluations).</p>
+<p>The error of this approximation is \(O ( r)\), which means it can be quite accurate when \(r\) is small. However, as \(r\) becomes small, rounding errors pile up in the numerator. While not accurate enough for every application, the finite difference approximation is simple and cheap (2 gradient evaluations).</p>
 
 <h3 id="2-product-rule-trick">2. Product Rule Trick</h3>
 
@@ -184,7 +182,7 @@
 
 <h3 id="hutchinsons-diagonal-estimator-1">Hutchinson’s Diagonal Estimator</h3>
 
-<p>The basic idea from the trace estimator can be modified to give an estimator for the diagonal rather than the trace. We again draw</p>
+<p>The basic idea from the trace estimator can be modified to give an estimator for the diagonal rather than the trace.</p>
 
 <p>Claim: Let \(z\) be a random variable \(z\) with \(\mathbb{E}[z]=0\), \(\mathbb{V}[z]=1\), and independent entries. Then \(\mathbb{E}[z \odot H z] = \text{diag}(H)\).</p>
 
@@ -210,7 +208,7 @@
     &amp;= \text{diag}(H)
 \end{align*}\]
 
-<p>Now let’s calculate the variance of this estimator.</p>
+<p>Now let’s calculate the variance of Hutchinson’s diagonal estimator.</p>
 
 <p>Claim: Let \(z \sim \text{Rademacher}\). Then</p>
 
@@ -277,6 +275,8 @@
 <li><span id="bollapragada2018progressive">Bollapragada, R., Nocedal, J., Mudigere, D., Shi, H.-J., &amp; Tang, P. T. P. (2018). A progressive batching L-BFGS method for machine learning. <i>International Conference on Machine Learning</i>, 620–629. https://arxiv.org/abs/1802.05374</span></li>
 <li><span id="LeCun1989OptimalBD">LeCun, Y., Denker, J., &amp; Solla, S. (1989). Optimal Brain Damage. <i>NIPS</i>.</span></li>
 <li><span id="Hassibi1992SecondOD">Hassibi, B., &amp; Stork, D. (1992). Second Order Derivatives for Network Pruning: Optimal Brain Surgeon. <i>NIPS</i>.</span></li>
+<li><span id="Yao2020PyHessianNN">Yao, Z., Gholami, A., Keutzer, K., &amp; Mahoney, M. W. (2020). PyHessian: Neural Networks Through the Lens of the Hessian. <i>2020 IEEE International Conference on Big Data (Big Data)</i>, 581–590.</span></li>
+<li><span id="Yao2021ADAHESSIANAA">Yao, Z., Gholami, A., Shen, S., Keutzer, K., &amp; Mahoney, M. (2021). ADAHESSIAN: An Adaptive Second Order Optimizer for Machine Learning. <i>ArXiv</i>, <i>abs/2006.00719</i>.</span></li>
 <li><span id="Pearlmutter1994FastEM">Pearlmutter, B. A. (1994). Fast Exact Multiplication by the Hessian. <i>Neural Computation</i>, <i>6</i>, 147–160.</span></li></ol>
 
   </div>

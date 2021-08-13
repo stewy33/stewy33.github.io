@@ -174,7 +174,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 400; }
 
 /** Links */
 a { color: #007bff; text-decoration: none; }
-a:hover { /*color: $crimson-color-light;*/ text-decoration: underline; }
+a:hover { text-decoration: underline; }
 .social-media-list a:hover { text-decoration: none; }
 .social-media-list a:hover .username { text-decoration: underline; }
 
@@ -242,10 +242,9 @@ pre .lineno { font-size: 14.4px; }
 
 .post-meta { font-size: 14px; color: #828282; }
 .post-meta a.post-tag { border-radius: 20px; border: 1px solid #828282; color: #828282; padding: 1px 5px; margin-left: 5px; }
-.post-meta a.post-tag:hover { border: 1px solid #ffffff; text-decoration: none; color: #ffffff; }
+.post-meta a.post-tag:hover { border: 1px solid #007bff; text-decoration: none; color: #007bff; }
 
 .post-link { display: block; font-size: 24px; }
-.post-link:hover { color: #f9493f; text-decoration: none; cursor: pointer; }
 
 /** Posts */
 .post-header { margin-bottom: 30px; }

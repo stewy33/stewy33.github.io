@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-08-11T01:25:16-04:00</updated><id>/feed.xml</id><title type="html">Stewy Slocum</title><subtitle>Stewy Slocum's website</subtitle><author><name>Stewart Slocum</name></author><entry><title type="html">Hutchinson’s Diagonal Estimator</title><link href="/2021/08/07/hutchinson's-diagonal-estimator.html" rel="alternate" type="text/html" title="Hutchinson’s Diagonal Estimator" /><published>2021-08-07T00:00:00-04:00</published><updated>2021-08-07T00:00:00-04:00</updated><id>/2021/08/07/hutchinson's-diagonal-estimator</id><content type="html" xml:base="/2021/08/07/hutchinson's-diagonal-estimator.html">&lt;blockquote&gt;
-  &lt;p&gt;In this post, we’ll take a look at a method of approximating large Hessian matrices use a stochastic diagonal estimator. Hutchinson’s method can be used for optimization and loss-landscape analysis in deep neural networks.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-08-13T14:03:25-04:00</updated><id>/feed.xml</id><title type="html">Stewy Slocum</title><subtitle>Stewy Slocum's website</subtitle><author><name>Stewart Slocum</name></author><entry><title type="html">Hutchinson’s Diagonal Estimator</title><link href="/2021/08/07/hutchinson's-diagonal-estimator.html" rel="alternate" type="text/html" title="Hutchinson’s Diagonal Estimator" /><published>2021-08-07T00:00:00-04:00</published><updated>2021-08-07T00:00:00-04:00</updated><id>/2021/08/07/hutchinson's-diagonal-estimator</id><content type="html" xml:base="/2021/08/07/hutchinson's-diagonal-estimator.html">&lt;blockquote&gt;
+  &lt;p&gt;In this post, we’ll take a look at a method of approximating large Hessian matrices using a stochastic diagonal estimator. Hutchinson’s method can be used for optimization and loss-landscape analysis in deep neural networks.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;!--more--&gt;
@@ -12,7 +12,7 @@
 
 &lt;p&gt;There has been significant work towards efficient approximation of the Hessian, most notably in the form of low-rank updates like &lt;a href=&quot;https://en.wikipedia.org/wiki/Limited-memory_BFGS&quot;&gt;L-BFGS&lt;/a&gt;. This approach work well in traditional optimization settings, but is relatively slow and generally doesn’t work in stochastic settings &lt;a class=&quot;citation&quot; href=&quot;#bollapragada2018progressive&quot;&gt;(Bollapragada et al., 2018)&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Alternatively, there has also been a variety of work old and new to estimate the diagonal of the Hessian as a way of approximating the matrix as a whole, for pruning &lt;a class=&quot;citation&quot; href=&quot;#LeCun1989OptimalBD&quot;&gt;(LeCun et al., 1989)&lt;/a&gt;, &lt;a class=&quot;citation&quot; href=&quot;#Hassibi1992SecondOD&quot;&gt;(Hassibi &amp;amp; Stork, 1992)&lt;/a&gt; analyzing the loss landscape (missing reference). It has been argued that the diagonal is a good approximation to the Hessian for machine learning problems, and that diagonal elements tend to be much larger than off-diagonal elements.&lt;/p&gt;
+&lt;p&gt;Alternatively, there has also been a variety of work old and new to estimate the diagonal of the Hessian as a way of approximating the matrix as a whole, for pruning &lt;a class=&quot;citation&quot; href=&quot;#LeCun1989OptimalBD&quot;&gt;(LeCun et al., 1989)&lt;/a&gt;, &lt;a class=&quot;citation&quot; href=&quot;#Hassibi1992SecondOD&quot;&gt;(Hassibi &amp;amp; Stork, 1992)&lt;/a&gt; analyzing the loss landscape &lt;a class=&quot;citation&quot; href=&quot;#Yao2020PyHessianNN&quot;&gt;(Yao et al., 2020)&lt;/a&gt;, and optimization &lt;a class=&quot;citation&quot; href=&quot;#Yao2021ADAHESSIANAA&quot;&gt;(Yao et al., 2021)&lt;/a&gt;. It has been argued that the diagonal is a good approximation to the Hessian for machine learning problems, and that diagonal elements tend to be much larger than off-diagonal elements.&lt;/p&gt;
 
 &lt;p&gt;However, calculating the diagonal of the Hessian is not straightforward. Automatic differentiation libraries are designed to make large computations in parallel, so naively calculating diagonal terms of the Hessian one-by-one \(\frac{\partial^2 L(x)}{\partial x_1^2}, \frac{\partial^2 L(x)}{\partial x_2^2}, ..., \frac{\partial^2 L(x)}{\partial x_n^2}\) requires \(n\) backprop operations and isn’t computationally feasible. However, we can estimate this diagonal relatively efficiently using randomized linear algebra in the form of Hutchinson’s estimator.&lt;/p&gt;
 
@@ -24,7 +24,7 @@
 
 \[H(x) v \approx \frac{g(x + rv) - g(x - rv)}{2r}\]
 
-&lt;p&gt;The error of this approximation is $O(r)$, which means it can be quite accurate when $r$ is small. However, as $r$ becomes small, rounding errors pile up in the numerator. While not accurate enough for every application, the finite difference approximation is simple and cheap (2 gradient evaluations).&lt;/p&gt;
+&lt;p&gt;The error of this approximation is \(O ( r)\), which means it can be quite accurate when \(r\) is small. However, as \(r\) becomes small, rounding errors pile up in the numerator. While not accurate enough for every application, the finite difference approximation is simple and cheap (2 gradient evaluations).&lt;/p&gt;
 
 &lt;h3 id=&quot;2-product-rule-trick&quot;&gt;2. Product Rule Trick&lt;/h3&gt;
 
@@ -75,7 +75,7 @@
 
 &lt;h3 id=&quot;hutchinsons-diagonal-estimator-1&quot;&gt;Hutchinson’s Diagonal Estimator&lt;/h3&gt;
 
-&lt;p&gt;The basic idea from the trace estimator can be modified to give an estimator for the diagonal rather than the trace. We again draw&lt;/p&gt;
+&lt;p&gt;The basic idea from the trace estimator can be modified to give an estimator for the diagonal rather than the trace.&lt;/p&gt;
 
 &lt;p&gt;Claim: Let \(z\) be a random variable \(z\) with \(\mathbb{E}[z]=0\), \(\mathbb{V}[z]=1\), and independent entries. Then \(\mathbb{E}[z \odot H z] = \text{diag}(H)\).&lt;/p&gt;
 
@@ -101,7 +101,7 @@
     &amp;amp;= \text{diag}(H)
 \end{align*}\]
 
-&lt;p&gt;Now let’s calculate the variance of this estimator.&lt;/p&gt;
+&lt;p&gt;Now let’s calculate the variance of Hutchinson’s diagonal estimator.&lt;/p&gt;
 
 &lt;p&gt;Claim: Let \(z \sim \text{Rademacher}\). Then&lt;/p&gt;
 
@@ -168,4 +168,6 @@
 &lt;li&gt;&lt;span id=&quot;bollapragada2018progressive&quot;&gt;Bollapragada, R., Nocedal, J., Mudigere, D., Shi, H.-J., &amp;amp; Tang, P. T. P. (2018). A progressive batching L-BFGS method for machine learning. &lt;i&gt;International Conference on Machine Learning&lt;/i&gt;, 620–629. https://arxiv.org/abs/1802.05374&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;LeCun1989OptimalBD&quot;&gt;LeCun, Y., Denker, J., &amp;amp; Solla, S. (1989). Optimal Brain Damage. &lt;i&gt;NIPS&lt;/i&gt;.&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;Hassibi1992SecondOD&quot;&gt;Hassibi, B., &amp;amp; Stork, D. (1992). Second Order Derivatives for Network Pruning: Optimal Brain Surgeon. &lt;i&gt;NIPS&lt;/i&gt;.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;Pearlmutter1994FastEM&quot;&gt;Pearlmutter, B. A. (1994). Fast Exact Multiplication by the Hessian. &lt;i&gt;Neural Computation&lt;/i&gt;, &lt;i&gt;6&lt;/i&gt;, 147–160.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>Stewart Slocum</name></author><category term="optimization" /><summary type="html">In this post, we’ll take a look at a method of approximating large Hessian matrices use a stochastic diagonal estimator. Hutchinson’s method can be used for optimization and loss-landscape analysis in deep neural networks.</summary></entry></feed>
+&lt;li&gt;&lt;span id=&quot;Yao2020PyHessianNN&quot;&gt;Yao, Z., Gholami, A., Keutzer, K., &amp;amp; Mahoney, M. W. (2020). PyHessian: Neural Networks Through the Lens of the Hessian. &lt;i&gt;2020 IEEE International Conference on Big Data (Big Data)&lt;/i&gt;, 581–590.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;Yao2021ADAHESSIANAA&quot;&gt;Yao, Z., Gholami, A., Shen, S., Keutzer, K., &amp;amp; Mahoney, M. (2021). ADAHESSIAN: An Adaptive Second Order Optimizer for Machine Learning. &lt;i&gt;ArXiv&lt;/i&gt;, &lt;i&gt;abs/2006.00719&lt;/i&gt;.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;Pearlmutter1994FastEM&quot;&gt;Pearlmutter, B. A. (1994). Fast Exact Multiplication by the Hessian. &lt;i&gt;Neural Computation&lt;/i&gt;, &lt;i&gt;6&lt;/i&gt;, 147–160.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>Stewart Slocum</name></author><category term="optimization" /><summary type="html">In this post, we’ll take a look at a method of approximating large Hessian matrices using a stochastic diagonal estimator. Hutchinson’s method can be used for optimization and loss-landscape analysis in deep neural networks.</summary></entry></feed>
