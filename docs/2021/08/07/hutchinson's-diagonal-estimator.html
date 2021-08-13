@@ -57,7 +57,10 @@
 
     <div class="wrapper">
         
-        <a class="site-title" href="/"><img src="/assets/images/S.png" width="50px" style="display: none"/>Stewy Slocum</a>
+        <a class="site-title" href="/">
+            <img src="/assets/images/S.png" height="50px" style="display: none; position: relative; top: -5px; right: -7px"/>
+            Stewy Slocum
+        </a>
 
         <nav class="site-nav">
             <a class="page-link" href="/">&#127968; Home</a>
@@ -111,8 +114,6 @@
 
 <!--more-->
 
-<h1 id="hutchinsons-diagonal-estimator">Hutchinson’s Diagonal Estimator</h1>
-
 <p>In modern machine learning with large deep models, explicit computation of the Hessian matrix is intractable. However, the Hessian matrix provides valuable information for optimization, studying generalization, and for other purposes. But even if we can’t calculate the full Hessian, can we effectively approximate it?</p>
 
 <p><img src="/assets/images/flat-minimum.png" alt="Neural Network Loss Surfaces" /> <em>Fig. 1. Flat minima have been linked to improved generalization. The magnitude of the eigenvalues of the Hessian provide one way to characterize sharpness/flatness <a class="citation" href="#Keskar2017OnLT">(Keskar et al., 2017)</a>.</em></p>
@@ -157,9 +158,9 @@
 
 <p>To estimate the trace, we draw random vectors \(z\) from a distribution with mean zero and variance one (typically the <a href="https://en.wikipedia.org/wiki/Rademacher_distribution">Rademacher distribution</a>). We can then estimate the trace of a matrix as \(\mathbb{E}[z^\top H z] = \text{trace}(H)\).</p>
 
-<p>Claim: Let \(z\) a random vector with \(\mathbb{E}[z]=0\), \(\mathbb{V}[z]=1\), and independent entries. Then \(\mathbb{E}[z^\top H z] = \text{trace}(H)\).</p>
+<p><strong>Theorem:</strong> Let \(z\) a random vector with \(\mathbb{E}[z]=0\), \(\mathbb{V}[z]=1\), and independent entries. Then \(\mathbb{E}[z^\top H z] = \text{trace}(H)\).</p>
 
-<p>Proof:</p>
+<p><em>Proof.</em></p>
 
 \[\begin{align}
 	\mathbb{E}[z^\top H z] &amp;= \mathbb{E}[\begin{bmatrix}z_1 \\ z_2 \\ ... \\ z_n\end{bmatrix}^\top \begin{bmatrix}H_{11} z_1 + H_{12} z_2 + ... + H_{1n} z_n \\ H_{12} z_1 + H_{22} z_2 + ... + H_{2n} z_n \\ ... \\ H_{n1} z_1 + H_{n2} z_2 + ... + H_{nn} z_n\end{bmatrix}] \\
@@ -177,16 +178,16 @@
 \[\begin{align}
   \mathbb{E}[z^\top H z] &amp;= \sum\limits_{i=1}^n H_{1i} \mathbb{E}[z_1 z_i] + \sum\limits_{i=1}^n H_{2i} \mathbb{E}[z_2 z_i] + ... + \sum\limits_{i=1}^n H_{ni} \mathbb{E}[z_n z_i] \\
   &amp;= H_{11} + H_{22} + ... + H_{nn} \\
-  &amp;= \text{trace}(H)
+  &amp;= \text{trace}(H) \tag*{$\blacksquare$}
 \end{align}\]
 
-<h3 id="hutchinsons-diagonal-estimator-1">Hutchinson’s Diagonal Estimator</h3>
+<h3 id="hutchinsons-diagonal-estimator">Hutchinson’s Diagonal Estimator</h3>
 
 <p>The basic idea from the trace estimator can be modified to give an estimator for the diagonal rather than the trace.</p>
 
-<p>Claim: Let \(z\) be a random variable \(z\) with \(\mathbb{E}[z]=0\), \(\mathbb{V}[z]=1\), and independent entries. Then \(\mathbb{E}[z \odot H z] = \text{diag}(H)\).</p>
+<p><strong>Theorem:</strong> Let \(z\) be a random variable \(z\) with \(\mathbb{E}[z]=0\), \(\mathbb{V}[z]=1\), and independent entries. Then \(\mathbb{E}[z \odot H z] = \text{diag}(H)\).</p>
 
-<p>Proof:</p>
+<p><em>Proof.</em></p>
 
 \[\begin{align*}
     \mathbb{E}[z \odot Hz] &amp;= \mathbb{E}[
@@ -205,18 +206,18 @@
     &amp;= \begin{bmatrix}
     H_{11} \\ H_{22} \\ ... \\ H_{nn}
     \end{bmatrix} \\
-    &amp;= \text{diag}(H)
+    &amp;= \text{diag}(H) \tag*{$\blacksquare$}
 \end{align*}\]
 
 <p>Now let’s calculate the variance of Hutchinson’s diagonal estimator.</p>
 
-<p>Claim: Let \(z \sim \text{Rademacher}\). Then</p>
+<p><strong>Theorem:</strong> Let \(z \sim \text{Rademacher}\). Then</p>
 
 \[\mathbb{V}[z \odot H z] = \begin{bmatrix}||H_1||^2 \\ ||H_2||^2 \\ ... \\ ||H_n||^2\end{bmatrix} - \text{diag}(H)^2\]
 
 <p>where \(H_k\) is the k-th row of \(H\).</p>
 
-<p>Proof: Let us consider each entry \(k\) separately:</p>
+<p><em>Proof.</em> Let us consider each entry \(k\) separately:</p>
 
 \[\begin{align}
     (\mathbb{V}[z \odot H z])_k &amp;= \mathbb{V}[z_k \odot (H z)_k] \\
@@ -224,7 +225,7 @@
     &amp;= \mathbb{V}[H_{k1} z_k z_1 + ... + H_{kk} z_k z_k + ... + H_{kn} z_k z_n] \\
     &amp;= \sum\limits_{i=0}^n \sum\limits_{j=0}^n \text{Cov}(H_{ki} z_k z_i, H_{kj} z_k z_j) \\
     &amp;= \sum\limits_{i=0}^n \sum\limits_{j=0}^n \mathbb{E}[(H_{ki} z_k z_i)(H_{kj} z_k z_j)] - \mathbb{E}[H_{ki} z_k z_i] \mathbb{E}[H_{kj} z_k z_j] \\
-    &amp;= \sum\limits_{i=0}^n \sum\limits_{j=0}^n H_{ki}H_{kj} (\mathbb{E}[z_k^2 z_i z_)] - \mathbb{E}[z_k z_i] \mathbb{E}[z_k z_j]) \\
+    &amp;= \sum\limits_{i=0}^n \sum\limits_{j=0}^n H_{ki}H_{kj} (\mathbb{E}[z_k^2 z_i z_)] - \mathbb{E}[z_k z_i] \mathbb{E}[z_k z_j])
 \end{align}\]
 
 <p>When \(i \neq j\), we also know that at least one of \(i, j \neq k\). WLOG suppose \(i \neq k\). Then
@@ -261,13 +262,9 @@
 
 \[\begin{align}
     \mathbb{V}[z \odot H z] &amp;= \begin{bmatrix}||H_1||^2 \\ ||H_2||^2 \\ ... \\ ||H_n||^2\end{bmatrix} - \text{diag}(H)^2
-\end{align}\]
+\end{align} \tag*{$\blacksquare$}\]
 
-<p>Note that the entries of vector of variances are proportional to</p>
-
-\[||H_k^2||\]
-
-<p>which grows linearly with the number of variables in the Hessian.</p>
+<p>Interestingly, this variance is equal to the squared L-2 norm of the off-diagonal elements of each row. So even though this variance grows like \(O(n)\) with the number of variables in the Hessian, if the assumption that the off-diagonal elements of the Hessian are small is true, then this variance remains small.</p>
 
 <h2 id="references">References</h2>
 
@@ -312,16 +309,9 @@
 
     <div style="clear: both;"/>
 <footer class="site-footer">
-    2021 &copy; Built by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> and <a href="https://github.com/jekyll/minima/" target="_blank">minima</a> | View <a href="https://github.com/stewy33/stewy33.github.io/" target="_blank">this</a> on Github
-
-    <!--<p>
-        <a href="https://scholar.google.com/citations?user=Z9voXDgAAAAJ&hl=en" target="_blank">
-            <img src="/assets/images/logo_scholar.png" />
-        </a>
-        <a href="https://github.com/stewy33" target="_blank">
-            <img src="/assets/images/logo_github.png" />
-        </a>
-    </p>-->
+    2021 &copy; by Stewart Slocum | Built with <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> and <a href="https://github.com/jekyll/minima/" target="_blank">minima</a>
+    | View on <a href="https://github.com/stewy33/stewy33.github.io/" target="_blank">Github</a>
+    | Inspired by <a href="https://lilianweng.github.io/lil-log/", target="_blank">Lilian Weng</a>
 </footer>
 
 
