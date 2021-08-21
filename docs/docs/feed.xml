@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-08-21T15:01:28-04:00</updated><id>/feed.xml</id><title type="html">Stewy Slocum</title><subtitle>Stewy Slocum's website</subtitle><author><name>Stewart Slocum</name></author><entry><title type="html">Hutchinson’s Diagonal Estimator</title><link href="/2021/08/07/hutchinson's-diagonal-estimator.html" rel="alternate" type="text/html" title="Hutchinson’s Diagonal Estimator" /><published>2021-08-07T00:00:00-04:00</published><updated>2021-08-07T00:00:00-04:00</updated><id>/2021/08/07/hutchinson's-diagonal-estimator</id><content type="html" xml:base="/2021/08/07/hutchinson's-diagonal-estimator.html">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-08-13T17:52:54-04:00</updated><id>/feed.xml</id><title type="html">Stewy Slocum</title><subtitle>Stewy Slocum's website</subtitle><author><name>Stewart Slocum</name></author><entry><title type="html">Hutchinson’s Diagonal Estimator</title><link href="/2021/08/07/hutchinson's-diagonal-estimator.html" rel="alternate" type="text/html" title="Hutchinson’s Diagonal Estimator" /><published>2021-08-07T00:00:00-04:00</published><updated>2021-08-07T00:00:00-04:00</updated><id>/2021/08/07/hutchinson's-diagonal-estimator</id><content type="html" xml:base="/2021/08/07/hutchinson's-diagonal-estimator.html">&lt;blockquote&gt;
   &lt;p&gt;In this post, we’ll take a look at a method of approximating large Hessian matrices using a stochastic diagonal estimator. Hutchinson’s method can be used for optimization and loss-landscape analysis in deep neural networks.&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -22,11 +22,11 @@
 
 \[H(x) v \approx \frac{g(x + rv) - g(x - rv)}{2r}\]
 
-&lt;p&gt;The error of this approximation is \(O(r)\), which means it can be quite accurate when \(r\) is small. However, as \(r\) becomes small, rounding errors pile up in the numerator. While not accurate enough for every application, the finite difference approximation is simple and cheap (2 gradient evaluations).&lt;/p&gt;
+&lt;p&gt;The error of this approximation is \(O ( r)\), which means it can be quite accurate when \(r\) is small. However, as \(r\) becomes small, rounding errors pile up in the numerator. While not accurate enough for every application, the finite difference approximation is simple and cheap (2 gradient evaluations).&lt;/p&gt;
 
 &lt;h3 id=&quot;2-product-rule-trick&quot;&gt;2. Product Rule Trick&lt;/h3&gt;
 
-\[\frac{\partial (g(x)^\top v)}{\partial x} = \frac{\partial g(x)}{\partial x} v + g(x) \frac{\partial v}{\partial x} = \frac{\partial g(x)}{\partial x} v = H(x) v\]
+\[\frac{\partial (g(x)^\top v)}{\partial x} = \frac{\partial g(x)}{\partial x} v + g(\theta) \frac{\partial v}{\partial x} = \frac{\partial g(x)}{\partial x} v = H(x) v\]
 
 &lt;p&gt;This exact method requires taking the gradient of an expression that includes the gradient. It means that the operations used to backprop must also be tracked so they can be differentiated.&lt;/p&gt;
 
@@ -101,100 +101,60 @@
 
 &lt;p&gt;Now let’s calculate the variance of Hutchinson’s diagonal estimator.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Theorem:&lt;/strong&gt; Let \(z \sim \text{Rademacher}\). Then the covariance matrix of Hutchinson’s diagonal estimator is&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Theorem:&lt;/strong&gt; Let \(z \sim \text{Rademacher}\). Then&lt;/p&gt;
+
+\[\mathbb{V}[z \odot H z] = \begin{bmatrix}||H_1||^2 \\ ||H_2||^2 \\ ... \\ ||H_n||^2\end{bmatrix} - \text{diag}(H)^2\]
+
+&lt;p&gt;where \(H_k\) is the k-th row of \(H\).&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Proof.&lt;/em&gt; Let us consider each entry \(k\) separately:&lt;/p&gt;
 
 \[\begin{align}
-    \Sigma_{z \odot Hz} = \text{diag}(H)\text{diag}(H)^\top + \left(\begin{bmatrix}
-    ||H_1||^2 \\
-    ||H_2||^2 \\
-    \vdots \\
-    ||H_n||^2
-    \end{bmatrix} - 2 \text{diag}(H)^2\right) \odot I
+    (\mathbb{V}[z \odot H z])_k &amp;amp;= \mathbb{V}[z_k \odot (H z)_k] \\
+    &amp;amp;= \mathbb{V}[z_k (H_{k1} z_1 + ... + H_{kk} z_k + ... + H_{kn} z_n)] \\
+    &amp;amp;= \mathbb{V}[H_{k1} z_k z_1 + ... + H_{kk} z_k z_k + ... + H_{kn} z_k z_n] \\
+    &amp;amp;= \sum\limits_{i=0}^n \sum\limits_{j=0}^n \text{Cov}(H_{ki} z_k z_i, H_{kj} z_k z_j) \\
+    &amp;amp;= \sum\limits_{i=0}^n \sum\limits_{j=0}^n \mathbb{E}[(H_{ki} z_k z_i)(H_{kj} z_k z_j)] - \mathbb{E}[H_{ki} z_k z_i] \mathbb{E}[H_{kj} z_k z_j] \\
+    &amp;amp;= \sum\limits_{i=0}^n \sum\limits_{j=0}^n H_{ki}H_{kj} (\mathbb{E}[z_k^2 z_i z_)] - \mathbb{E}[z_k z_i] \mathbb{E}[z_k z_j])
 \end{align}\]
 
-&lt;p&gt;where \(H_i\) is the \(i\)-th row of \(H\).&lt;/p&gt;
+&lt;p&gt;When \(i \neq j\), we also know that at least one of \(i, j \neq k\). WLOG suppose \(i \neq k\). Then
+\(\mathbb{E}[z_k^2 z_i z_j] - \mathbb{E}[z_k z_i] \mathbb{E}[z_k z_j] = \mathbb{E}[z_k^2 z_j]\mathbb{E}[z_i] - \mathbb{E}[z_k]\mathbb{E}[z_i]\mathbb{E}[z_k z_j] = 0 - 0 = 0\).&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Proof.&lt;/em&gt; Let us consider each entry of the covariance matrix separately:&lt;/p&gt;
+&lt;p&gt;Now since all terms of the sum with \(i \neq j\) are zero,&lt;/p&gt;
 
 \[\begin{align}
-    (\Sigma_{z \odot Hz})_{ij} &amp;amp;= \text{Cov}[(z \odot Hz)_i (z \odot Hz)_j] \\
-    &amp;amp;= \mathbb{E}[(z \odot Hz)_i (z \odot Hz)_j] - \mathbb{E}[z \odot Hz]_i \mathbb{E}[z \odot Hz]_j \\
-    &amp;amp;= \mathbb{E}[(z_i (H_{i1} z_1 + ... + H_{in} z_n)) (z_j (H_{j1} z_1 + ... + H_{jn} z_n))] - H_{ii} H_{jj} \\
-    &amp;amp;= \mathbb{E}[\sum\limits_{k=0}^n \sum\limits_{l=0}^n H_{ik}H_{jl} z_i z_k z_j z_l] - H_{ii}H_{jj} \\
-    &amp;amp;= (\sum\limits_{k=0}^n \sum\limits_{l=0}^n H_{ik} H_{jl} \mathbb{E}[z_i z_k z_j z_l]) - H_{ii}H_{jj}
+	(\mathbb{V}[z \odot H z])_k &amp;amp;= \sum\limits_{i=0}^n H_{ki} H_{ki} (\mathbb{E}[z_k^2 z_i z_)] - \mathbb{E}[z_k z_i] \mathbb{E}[z_k z_j])
 \end{align}\]
 
-&lt;p&gt;First consider diagonal elements, which have \(i = j\):&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;Case 1. \(i = j = k = l\). Then \(\mathbb{E}[z_i z_k z_j z_l] = \mathbb{E}[z_i^4] = \text{Kurtosis}[z]\)&lt;/li&gt;
-  &lt;li&gt;Case 2. \(i = j \neq k\), \(k = l\). Then \(\mathbb{E}[z_i z_k z_j z_l] = \mathbb{E}[z_i^2]\mathbb{E}[z_k^2] = 1 \cdot 1 = 1\)&lt;/li&gt;
-  &lt;li&gt;Case 3. \(i = j\), \(k \neq l\). Therefore, at least one of \(k, l \neq i\). WLOG suppose \(k \neq i\). Then \(\mathbb{E}[z_i z_k z_j z_l] = \mathbb{E}[z_i^2 z_l]\mathbb{E}[z_k] = 0 \cdot \mathbb{E}[z_i^2 z_l] = 0\)&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;And when \(i = j = k\), we have \(\mathbb{E}[z_k^2 z_i z_j] - \mathbb{E}[z_k z_i] \mathbb{E}[z_k z_j] = \mathbb{E}[z_k^4] - \mathbb{E}[z_k^2]^2 = 1 - 1^2 = 0\).&lt;/p&gt;
 
-&lt;p&gt;This gives&lt;/p&gt;
+&lt;p&gt;We have \(\mathbb{E}[z_k^4] = 1\) because for the Rademacher distribution, \(\mathbb{E}[z^4] = \text{Kurtosis}[z] = 1\). In fact, the Bernoulli distribution has the smallest kurtosis of any distribution (kurtosis 1), and since the Rademacher distribution is just a scaled Bernoulli, it is the optimal distribution from which to draw \(z\) in terms of reducing variance of this estimator.&lt;/p&gt;
+
+&lt;p&gt;So since the terms of the sum when \(i = j = k\) are zero, we have&lt;/p&gt;
 
 \[\begin{align}
-    (\Sigma_{z \odot Hz})_{ii} &amp;amp;= (\sum\limits_{k=0}^n \sum\limits_{l=0}^n H_{ik} H_{il} \mathbb{E}[z_i z_k z_i z_l]) - H_{ii}^2 \\
-    &amp;amp;= \text{Kurtosis}[z]H_{ii}^2 +  \sum\limits_{k=0, k \neq i}^n H_{ik}^2 - H_{ii}^2 \\
-    &amp;amp;= \sum\limits_{k=0, k \neq i}^n H_{ik}^2
+	(\mathbb{V}[z \odot H z])_k &amp;amp;= \sum\limits_{i=0, i \neq k}^n H_{ki} H_{ki} (\mathbb{E}[z_k^2 z_i z_)] - \mathbb{E}[z_k z_i] \mathbb{E}[z_k z_j])
 \end{align}\]
 
-&lt;p&gt;since the kurtosis of a Rademacher RV is 1. In fact, the Bernoulli distribution has the smallest kurtosis of any distribution at 1, and since the Rademacher distribution is just a scaled Bernoulli, it is the optimal distribution to draw \(z\) from with respect to the variance of our estimator.&lt;/p&gt;
+&lt;p&gt;Finally, when \(i = j \neq k\), \(\mathbb{E}[z_k^2 z_i z_j] - \mathbb{E}[z_k z_i] \mathbb{E}[z_k z_j] = \mathbb{E}[z_k^2 z_i^2] - \mathbb{E}[z_k z_i]^2 = \mathbb{E}[z_k^2]\mathbb{E}[z_i^2] - (\mathbb{E}[z_k]\mathbb{E}[z_i])^2 = 1 \cdot 1 - 0^2 = 1\)&lt;/p&gt;
 
-&lt;p&gt;Now consider off-diagonal elements, which have \(i \neq j\):&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;Case 1. \(i \neq j\) with \(i = k, j = l\) or \(i = l, j = k\). Then \(\mathbb{E}[z_i z_k z_j z_l] = \mathbb{E}[z_i^2]\mathbb{E}[z_j]^2 = 1 \cdot 1 = 1\)&lt;/li&gt;
-  &lt;li&gt;Case 2. \(i \neq j\) with at least one of \(k, l\) not equal to \(i\) or \(j\). WLOG suppose \(k \neq i, j\). Then \(\mathbb{E}[z_i z_k z_j z_l] = \mathbb{E}[z_i z_j z_l]\mathbb{E}[z_k] = \mathbb{E}[z_i z_j z_l] \cdot 0 = 0\)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;This gives&lt;/p&gt;
+&lt;p&gt;So, we have&lt;/p&gt;
 
 \[\begin{align}
-    (\Sigma_{z \odot Hz})_{ij} &amp;amp;= (\sum\limits_{k=0}^n \sum\limits_{l=0}^n H_{ik} H_{jl} \mathbb{E}[z_i z_k z_j z_l]) - H_{ii}H_{jj} \\
-    &amp;amp;= 2H_{ii}H_{jj} - H_{ii}H_{jj} \\
-    &amp;amp;= H_{ii}H_{jj}
+  (\mathbb{V}[z \odot H z])_k &amp;amp;= \sum\limits_{i=0}^n \sum\limits_{j=0}^n H_{ki}H_{kj} (\mathbb{E}[z_k^2 z_i z_)] - \mathbb{E}[z_k z_i] \mathbb{E}[z_k z_j]) \\
+    &amp;amp;= \sum\limits_{i=0, i \neq k}^n H_{ki}H_{ki} (\mathbb{E}[z_k^2 z_i z_)] - \mathbb{E}[z_k z_i] \mathbb{E}[z_k z_j]) \\
+    &amp;amp;= \sum\limits_{i=0, i \neq k}^n H_{ki}^2 \\
+    &amp;amp;= ||H_k||^2 - H_{kk}^2
 \end{align}\]
 
-&lt;p&gt;So our final covariance matrix is&lt;/p&gt;
+&lt;p&gt;Putting this all together, we get the full variance&lt;/p&gt;
 
-\[\require{color}
-\definecolor{brand}{RGB}{78, 182, 133}
-\begin{align}
-    \Sigma_{z \odot Hz} &amp;amp;=
-    \begin{bmatrix}
-        \textcolor{brand}{\sum\limits_{k=0, k \neq 1}^n H_{1k}^2} &amp;amp; H_{11}H_{22} &amp;amp; H_{11}H_{33} &amp;amp; ... &amp;amp; H_{11}H_{nn} \\
-        H_{11}H_{22} &amp;amp; \textcolor{brand}{\sum\limits_{k=0, k \neq 2}^n H_{2k}^2} &amp;amp; H_{22}H_{33} &amp;amp; ... &amp;amp; H_{22}H_{nn} \\
-        H_{11}H_{33} &amp;amp; H_{22}H_{33} &amp;amp; \textcolor{brand}{\sum\limits_{k=0, k \neq 3}^n H_{3k}^2} &amp;amp; ... &amp;amp; H_{33}H_{nn} \\
-        \vdots &amp;amp; \vdots &amp;amp; \vdots &amp;amp; \ddots &amp;amp; H_{n-1n-1}H_{nn} \\
-        H_{11}H_{nn} &amp;amp; H_{22}H_{nn} &amp;amp; H_{33}H_{nn} &amp;amp; ... &amp;amp; \textcolor{brand}{\sum\limits_{k=0, k \neq n}^n H_{nk}^2}
-    \end{bmatrix} \\
-    &amp;amp;= \underbrace{\text{diag}(H)\text{diag}(H)^\top - \text{diag}(H)^2 \odot I}_{\text{off-diagonal covariances}} + \underbrace{\textcolor{brand}{\left(\begin{bmatrix}
-    ||H_1||^2 \\
-    ||H_2||^2 \\
-    \vdots \\
-    ||H_n||^2
-    \end{bmatrix} - \text{diag}(H)^2\right) \odot I}}_{\text{diagonal vector of variances}} \\
-    &amp;amp;= \text{diag}(H)\text{diag}(H)^\top + \left(\begin{bmatrix}
-    ||H_1||^2 \\
-    ||H_2||^2 \\
-    \vdots \\
-    ||H_n||^2
-    \end{bmatrix} - 2 \text{diag}(H)^2\right) \odot I \tag*{$\blacksquare$}
-\end{align}\]
+\[\begin{align}
+    \mathbb{V}[z \odot H z] &amp;amp;= \begin{bmatrix}||H_1||^2 \\ ||H_2||^2 \\ ... \\ ||H_n||^2\end{bmatrix} - \text{diag}(H)^2
+\end{align} \tag*{$\blacksquare$}\]
 
-&lt;p&gt;Note that &lt;em&gt;variance&lt;/em&gt; of our estimator (diagonal of tbe covariance matrix) at a specific output \(i\) is \(\mathbb{V}[(z \odot H z)_i] = \textcolor{brand}{\sum\limits_{k=0, k \neq i}^n H_{ik}^2} = \| H_i \| ^2 - H_{ii}^2\). Interestingly, this variance is equal to the squared L-2 norm of the off-diagonal elements of each row. So even though this variance grows like \(O(n)\) with the number of variables in the Hessian, if the assumption that the off-diagonal elements of the Hessian are small is true, then this variance remains small.
-&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;
-Now let’s take a break with this landscape by Rembrandt&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/the-mill.jpg&quot; /&gt;&lt;/p&gt;
-
-&lt;p class=&quot;center&quot;&gt;&lt;strong&gt;The Mill&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p class=&quot;center&quot;&gt;Courtesy National Gallery of Art, Washington&lt;/p&gt;
+&lt;p&gt;Interestingly, this variance is equal to the squared L-2 norm of the off-diagonal elements of each row. So even though this variance grows like \(O(n)\) with the number of variables in the Hessian, if the assumption that the off-diagonal elements of the Hessian are small is true, then this variance remains small.&lt;/p&gt;
 
 &lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
 
