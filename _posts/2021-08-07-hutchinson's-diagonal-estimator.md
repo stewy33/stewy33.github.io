@@ -38,17 +38,7 @@ $$
 \frac{\partial (g(x)^\top v)}{\partial x} = \frac{\partial g(x)}{\partial x} v + g(x) \frac{\partial v}{\partial x} = \frac{\partial g(x)}{\partial x} v = H(x) v
 $$
 
-This exact method requires taking the gradient of an expression that includes the gradient. It means that the operations used to backprop must also be tracked so they can be differentiated.
-
-### 3. Perlmutter's Trick (Chain Rule Trick)
-
-$$
-\frac{\partial g(x + r v)}{\partial r}|_{r=0} = H(x)v
-$$
-
-This method is described in more detail in {% cite Pearlmutter1994FastEM %}. Like the product rule trick, it is exact, and requires differentiating and expression that includes the gradient.
-
-Each method has advantages and disadvantages, but the product rule trick is the implementation you'll find for Hessian-vector products in [pytorch](https://pytorch.org/docs/stable/generated/torch.autograd.functional.vhp.html#torch.autograd.functional.vhp) and in [jax](https://jax.readthedocs.io/en/latest/notebooks/autodiff_cookbook.html).
+This exact method requires taking the gradient of an expression that includes the gradient. It means that the operations used to backprop must also be tracked so they can be differentiated. This method is also $$O(n)$$ like typical gradient evaluations, but because of the more complex underlying expression, the constant factors are slightly higher in memory and in time. The product rule trick is the implementation you'll find for Hessian-vector products in [pytorch](https://pytorch.org/docs/stable/generated/torch.autograd.functional.vhp.html#torch.autograd.functional.vhp) and [jax](https://jax.readthedocs.io/en/latest/notebooks/autodiff_cookbook.html).
 
 ## Hutchinson's Estimator
 
