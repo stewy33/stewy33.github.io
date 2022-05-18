@@ -1,18 +1,69 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-01-04T16:01:14-05:00</updated><id>/feed.xml</id><title type="html">Stewy Slocum</title><subtitle>Stewy Slocum's website</subtitle><author><name>Stewart Slocum</name></author><entry><title type="html">Readings</title><link href="/2021/12/20/readings.html" rel="alternate" type="text/html" title="Readings" /><published>2021-12-20T00:00:00-05:00</published><updated>2021-12-20T00:00:00-05:00</updated><id>/2021/12/20/readings</id><content type="html" xml:base="/2021/12/20/readings.html">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-02-18T17:06:09-05:00</updated><id>/feed.xml</id><title type="html">Stewy Slocum</title><subtitle>Stewy Slocum's website</subtitle><author><name>Stewart Slocum</name></author><entry><title type="html">Readings</title><link href="/2021/12/20/readings.html" rel="alternate" type="text/html" title="Readings" /><published>2021-12-20T00:00:00-05:00</published><updated>2021-12-20T00:00:00-05:00</updated><id>/2021/12/20/readings</id><content type="html" xml:base="/2021/12/20/readings.html">&lt;blockquote&gt;
   &lt;p&gt;List of things I’ve been reading. Only adding things that I’ve read thoroughly and understand beyond a superficial level.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;!--more--&gt;
-&lt;h3 id=&quot;132021&quot;&gt;1/3/2021&lt;/h3&gt;
+&lt;h3 id=&quot;2172022&quot;&gt;2/17/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Rationality AI to Zombies: How to Actually Change Your Mind &lt;a href=&quot;https://www.lesswrong.com/rationality&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Generally Intelligent #10: Dylan Hadfield-Menell, UC Berkeley/MIT, on the value alignment problem in AI &lt;a href=&quot;https://generallyintelligent.ai/podcast/2021-05-11-podcast-episode-10-dylan-hadfield-menell/&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2152022&quot;&gt;2/15/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Algorithms for Inverse Reinforcement Learning &lt;a href=&quot;https://ai.stanford.edu/~ang/papers/icml00-irl.pdf&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2142022&quot;&gt;2/14/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Training language models to follow instructions with human feedback &lt;a href=&quot;https://cdn.openai.com/papers/Training_language_models_to_follow_instructions_with_human_feedback.pdf&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Noisy Adaptive Group Testing using Bayesian Sequential Experimental Design &lt;a href=&quot;https://arxiv.org/abs/2004.12508&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Towards a Rigorous Science of Interpretable Machine Learning &lt;a href=&quot;https://arxiv.org/abs/1702.08608&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2132022&quot;&gt;2/13/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Interpretability Beyond Feature Attribution: Quantitative Testing with Concept Activation Vectors (TCAV) &lt;a href=&quot;https://arxiv.org/abs/1711.11279&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Concept Whitening for Interpretable Image Recognition &lt;a href=&quot;https://arxiv.org/abs/2002.01650&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;NBDT: Neural-Backed Decision Trees &lt;a href=&quot;https://arxiv.org/abs/2004.00221&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2122022&quot;&gt;2/12/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Rationality AI to Zombies: Map and Territory &lt;a href=&quot;https://www.lesswrong.com/rationality&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;292022&quot;&gt;2/9/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Poincaré Embeddings for Learning Hierarchical Representations &lt;a href=&quot;https://arxiv.org/abs/1705.08039&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;272022&quot;&gt;2/7/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Toward a unified theory of human reasoning &lt;a href=&quot;https://www.sciencedirect.com/science/article/pii/0160289686900012&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;242022&quot;&gt;2/4/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;This Looks Like That: Deep Learning for Interpretable Image Recognition &lt;a href=&quot;https://arxiv.org/abs/1806.10574&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Towards Robust Interpretability with Self-Explaining Neural Networks &lt;a href=&quot;https://arxiv.org/abs/1806.07538&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;1312022&quot;&gt;1/31/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;A Unified Approach to Interpreting Model Predictions &lt;a href=&quot;https://arxiv.org/abs/1705.07874&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;1102022&quot;&gt;1/10/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Concept Bottleneck Models &lt;a href=&quot;https://arxiv.org/abs/2007.04612&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;132022&quot;&gt;1/3/2022&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Why Should I Trust You? Explaining the Predictions of Any Classifier &lt;a href=&quot;https://arxiv.org/abs/1602.04938&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;How to Explain Individual Classification Decisions &lt;a href=&quot;https://www.jmlr.org/papers/volume11/baehrens10a/baehrens10a.pdf&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;How to Explain the Prediction of a Machine Learning Model &lt;a href=&quot;https://lilianweng.github.io/lil-log/2017/08/01/how-to-explain-the-prediction-of-a-machine-learning-model.html&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;112021&quot;&gt;1/1/2021&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Genesis 1-7&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;12282021&quot;&gt;12/28/2021&lt;/h3&gt;
@@ -33,6 +84,11 @@
 &lt;h3 id=&quot;12222021&quot;&gt;12/22/2021&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Dual Space Preconditioning for Gradient Descent &lt;a href=&quot;https://arxiv.org/abs/1902.02257v4&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;12212021&quot;&gt;12/21/2021&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Generally Intelligent #12: Jacob Steinhardt, UC Berkeley, on machine learning safety, alignment and measurement &lt;a href=&quot;https://generallyintelligent.ai/podcast/2021-06-17-podcast-episode-12-jacob-steinhardt/&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;12202021&quot;&gt;12/20/2021&lt;/h3&gt;
