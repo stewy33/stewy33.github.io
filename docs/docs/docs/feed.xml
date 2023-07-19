@@ -1,8 +1,118 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-02-18T17:06:09-05:00</updated><id>/feed.xml</id><title type="html">Stewy Slocum</title><subtitle>Stewy Slocum's website</subtitle><author><name>Stewart Slocum</name></author><entry><title type="html">Readings</title><link href="/2021/12/20/readings.html" rel="alternate" type="text/html" title="Readings" /><published>2021-12-20T00:00:00-05:00</published><updated>2021-12-20T00:00:00-05:00</updated><id>/2021/12/20/readings</id><content type="html" xml:base="/2021/12/20/readings.html">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-05-18T17:05:38-04:00</updated><id>/feed.xml</id><title type="html">Stewy Slocum</title><subtitle>Stewy Slocum's website</subtitle><author><name>Stewart Slocum</name></author><entry><title type="html">Readings</title><link href="/2021/12/20/readings.html" rel="alternate" type="text/html" title="Readings" /><published>2021-12-20T00:00:00-05:00</published><updated>2021-12-20T00:00:00-05:00</updated><id>/2021/12/20/readings</id><content type="html" xml:base="/2021/12/20/readings.html">&lt;blockquote&gt;
   &lt;p&gt;List of things I’ve been reading. Only adding things that I’ve read thoroughly and understand beyond a superficial level.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;!--more--&gt;
+&lt;h3 id=&quot;5182022&quot;&gt;5/18/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Curiosity-driven Exploration by Self-supervised Prediction &lt;a href=&quot;https://arxiv.org/abs/1705.05363&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;5172022&quot;&gt;5/17/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Adaptive Computation Time for Recurrent Neural Networks &lt;a href=&quot;https://arxiv.org/abs/1603.08983&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;5162022&quot;&gt;5/16/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Embodied Question Answering &lt;a href=&quot;https://arxiv.org/abs/1711.11543&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;5132022&quot;&gt;5/13/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Global Convergence of Non-Convex Gradient Descent for Computing Matrix Squareroot &lt;a href=&quot;https://arxiv.org/abs/1507.05854&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;5112022&quot;&gt;5/11/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Convolutional Dynamic Alignment Networks for Interpretable Classifications &lt;a href=&quot;https://openaccess.thecvf.com/content/CVPR2021/html/Bohle_Convolutional_Dynamic_Alignment_Networks_for_Interpretable_Classifications_CVPR_2021_paper.html&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Optimizing for Interpretability in Deep Neural Networks with Tree Regularization &lt;a href=&quot;https://arxiv.org/abs/1908.05254&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Explainable Models with Consistent Interpretations &lt;a href=&quot;https://www.aaai.org/AAAI21Papers/AAAI-8236.PillaiV.pdf&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;4272022&quot;&gt;4/27/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;The Complexity of Agreement &lt;a href=&quot;https://arxiv.org/abs/cs/0406061&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Superintelligence: Paths, Dangers, Strategies &lt;a href=&quot;https://www.amazon.com/Superintelligence-Nick-Bostrom-audiobook/dp/B00LPMFE9Y/ref=sr_1_1?crid=KS4UJT5DNQX4&amp;amp;keywords=superintelligence+by+nick+bostrom&amp;amp;qid=1651103959&amp;amp;s=books&amp;amp;sprefix=superintellige%2Cstripbooks%2C56&amp;amp;sr=1-1&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;4252022&quot;&gt;4/25/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Geometric Deep Learning - Grids, Groups, Graphs, Geodesics, and Gauges: Chapters 4.1, 5.3, 5.4 &lt;a href=&quot;https://arxiv.org/abs/2104.13478&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;4242022&quot;&gt;4/24/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Adversarial Examples Are Not Bugs, They Are Features &lt;a href=&quot;https://arxiv.org/abs/1905.02175&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;4232022&quot;&gt;4/23/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Image Synthesis with a Single (Robust) Classifier &lt;a href=&quot;https://arxiv.org/abs/1906.09453&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Agreeing to Disagree &lt;a href=&quot;https://www.jstor.org/stable/2958591?seq=1&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;4182022&quot;&gt;4/18/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Identifying Statistical Bias in Dataset Replication &lt;a href=&quot;https://arxiv.org/abs/2005.09619&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;4162022&quot;&gt;4/16/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;What Can Neural Networks Reason About? &lt;a href=&quot;https://arxiv.org/abs/1905.13211&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;4152022&quot;&gt;4/15/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Cooperative Inverse Reinforcement Learning &lt;a href=&quot;https://arxiv.org/abs/1606.03137&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Editing a classifier by rewriting its prediction rules &lt;a href=&quot;https://arxiv.org/abs/2112.01008&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;4112022&quot;&gt;4/11/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Geometric Deep Learning - Grids, Groups, Graphs, Geodesics, and Gauges, Chapters 1-3 &lt;a href=&quot;https://arxiv.org/abs/2104.13478&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;492022&quot;&gt;4/9/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;The Old Man and the Sea by Ernest Hemingway&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;3282022&quot;&gt;3/28/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Convergence Analysis of Two-layer Neural Networks with ReLU Activation &lt;a href=&quot;https://arxiv.org/abs/1705.09886&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;372022&quot;&gt;3/7/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;A Gentle Introduction to Graph Neural Networks &lt;a href=&quot;https://distill.pub/2021/gnn-intro/&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;A General Formula on the Conjugate of the Difference of Functions &lt;a href=&quot;https://www.cambridge.org/core/services/aop-cambridge-core/content/view/7196EF8645D0C8C3D708C0CB59CBC629/S0008439500023547a.pdf/a-general-formula-on-the-conjugate-of-the-difference-of-functions.pdf&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Generalized Convexity and Fractional Programming with Economic Applications: On Strongly Convex and Paraconvex Dualities &lt;a href=&quot;https://link.springer.com/book/10.1007/978-3-642-46709-7&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;352022&quot;&gt;3/5/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Group Equivariant Convolutional Networks &lt;a href=&quot;https://arxiv.org/abs/1602.07576&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;322022&quot;&gt;3/2/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Model Inversion Networks for Model-Based Optimization &lt;a href=&quot;https://arxiv.org/abs/1912.13464&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Conservative Objective Models for Effective Offline Model-Based Optimization &lt;a href=&quot;https://arxiv.org/abs/2107.06882&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;312022&quot;&gt;3/1/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Consequences of Misaligned AI &lt;a href=&quot;https://arxiv.org/abs/2102.03896&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Future of Life Institute AI Alignment Podcast: Inverse Reinforcement Learning and Inferring Human Preferences with Dylan Hadfield-Menell &lt;a href=&quot;https://futureoflife.org/2019/01/17/cooperative-inverse-reinforcement-learning-with-dylan-hadfield-menell/&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2212022&quot;&gt;2/21/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;A unified framework for Hamiltonian deep neural networks &lt;a href=&quot;https://arxiv.org/abs/2104.13166&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Stable Architectures for Deep Neural Networks &lt;a href=&quot;https://arxiv.org/abs/1705.03341&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h3 id=&quot;2172022&quot;&gt;2/17/2022&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Rationality AI to Zombies: How to Actually Change Your Mind &lt;a href=&quot;https://www.lesswrong.com/rationality&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
@@ -38,11 +148,6 @@
   &lt;li&gt;Poincaré Embeddings for Learning Hierarchical Representations &lt;a href=&quot;https://arxiv.org/abs/1705.08039&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;272022&quot;&gt;2/7/2022&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Toward a unified theory of human reasoning &lt;a href=&quot;https://www.sciencedirect.com/science/article/pii/0160289686900012&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
 &lt;h3 id=&quot;242022&quot;&gt;2/4/2022&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;This Looks Like That: Deep Learning for Interpretable Image Recognition &lt;a href=&quot;https://arxiv.org/abs/1806.10574&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
@@ -69,6 +174,11 @@
 &lt;h3 id=&quot;12282021&quot;&gt;12/28/2021&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Learning Structured Output Representation using Deep Conditional Generative Models &lt;a href=&quot;https://papers.nips.cc/paper/2015/file/8d55a249e6baa5c06772297520da2051-Paper.pdf&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;12272021&quot;&gt;12/27/2021&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Genesis 1-7&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;12252021&quot;&gt;12/25/2021&lt;/h3&gt;

@@ -138,15 +138,7 @@
 
 \[\frac{\partial (g(x)^\top v)}{\partial x} = \frac{\partial g(x)}{\partial x} v + g(x) \frac{\partial v}{\partial x} = \frac{\partial g(x)}{\partial x} v = H(x) v\]
 
-<p>This exact method requires taking the gradient of an expression that includes the gradient. It means that the operations used to backprop must also be tracked so they can be differentiated.</p>
-
-<h3 id="3-perlmutters-trick-chain-rule-trick">3. Perlmutter’s Trick (Chain Rule Trick)</h3>
-
-\[\frac{\partial g(x + r v)}{\partial r}|_{r=0} = H(x)v\]
-
-<p>This method is described in more detail in <a class="citation" href="#Pearlmutter1994FastEM">(Pearlmutter, 1994)</a>. Like the product rule trick, it is exact, and requires differentiating and expression that includes the gradient.</p>
-
-<p>Each method has advantages and disadvantages, but the product rule trick is the implementation you’ll find for Hessian-vector products in <a href="https://pytorch.org/docs/stable/generated/torch.autograd.functional.vhp.html#torch.autograd.functional.vhp">pytorch</a> and in <a href="https://jax.readthedocs.io/en/latest/notebooks/autodiff_cookbook.html">jax</a>.</p>
+<p>This exact method requires taking the gradient of an expression that includes the gradient. It means that the operations used to backprop must also be tracked so they can be differentiated. This method is also \(O(n)\) like typical gradient evaluations, but because of the more complex underlying expression, the constant factors are slightly higher in memory and in time. The product rule trick is the implementation you’ll find for Hessian-vector products in <a href="https://pytorch.org/docs/stable/generated/torch.autograd.functional.vhp.html#torch.autograd.functional.vhp">pytorch</a> and <a href="https://jax.readthedocs.io/en/latest/notebooks/autodiff_cookbook.html">jax</a>.</p>
 
 <h2 id="hutchinsons-estimator">Hutchinson’s Estimator</h2>
 
@@ -313,8 +305,7 @@ Now let’s take a break with this landscape by Rembrandt</p>
 <li><span id="LeCun1989OptimalBD">LeCun, Y., Denker, J., &amp; Solla, S. (1989). Optimal Brain Damage. <i>NIPS</i>.</span></li>
 <li><span id="Hassibi1992SecondOD">Hassibi, B., &amp; Stork, D. (1992). Second Order Derivatives for Network Pruning: Optimal Brain Surgeon. <i>NIPS</i>.</span></li>
 <li><span id="Yao2020PyHessianNN">Yao, Z., Gholami, A., Keutzer, K., &amp; Mahoney, M. W. (2020). PyHessian: Neural Networks Through the Lens of the Hessian. <i>2020 IEEE International Conference on Big Data (Big Data)</i>, 581–590.</span></li>
-<li><span id="Yao2021ADAHESSIANAA">Yao, Z., Gholami, A., Shen, S., Keutzer, K., &amp; Mahoney, M. (2021). ADAHESSIAN: An Adaptive Second Order Optimizer for Machine Learning. <i>ArXiv</i>, <i>abs/2006.00719</i>.</span></li>
-<li><span id="Pearlmutter1994FastEM">Pearlmutter, B. A. (1994). Fast Exact Multiplication by the Hessian. <i>Neural Computation</i>, <i>6</i>, 147–160.</span></li></ol>
+<li><span id="Yao2021ADAHESSIANAA">Yao, Z., Gholami, A., Shen, S., Keutzer, K., &amp; Mahoney, M. (2021). ADAHESSIAN: An Adaptive Second Order Optimizer for Machine Learning. <i>ArXiv</i>, <i>abs/2006.00719</i>.</span></li></ol>
 
   </div>
 
@@ -351,7 +342,7 @@ Now let’s take a break with this landscape by Rembrandt</p>
 
     <div style="clear: both;"/>
 <footer class="site-footer">
-    2021 &copy; by Stewart Slocum | Built with <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> and <a href="https://github.com/jekyll/minima/" target="_blank">minima</a>
+    Built with <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> and <a href="https://github.com/jekyll/minima/" target="_blank">minima</a>
     | View on <a href="https://github.com/stewy33/stewy33.github.io/" target="_blank">Github</a>
     | Inspired by <a href="https://lilianweng.github.io/lil-log/", target="_blank">Lilian Weng</a>
 </footer>
