@@ -1,4 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-08-21T15:01:28-04:00</updated><id>/feed.xml</id><title type="html">Stewy Slocum</title><subtitle>Stewy Slocum's website</subtitle><author><name>Stewart Slocum</name></author><entry><title type="html">Hutchinson’s Diagonal Estimator</title><link href="/2021/08/07/hutchinson's-diagonal-estimator.html" rel="alternate" type="text/html" title="Hutchinson’s Diagonal Estimator" /><published>2021-08-07T00:00:00-04:00</published><updated>2021-08-07T00:00:00-04:00</updated><id>/2021/08/07/hutchinson's-diagonal-estimator</id><content type="html" xml:base="/2021/08/07/hutchinson's-diagonal-estimator.html">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-12-25T22:18:37-05:00</updated><id>/feed.xml</id><title type="html">Stewy Slocum</title><subtitle>Stewy Slocum's website</subtitle><author><name>Stewart Slocum</name></author><entry><title type="html">Readings</title><link href="/2021/12/20/readings.html" rel="alternate" type="text/html" title="Readings" /><published>2021-12-20T00:00:00-05:00</published><updated>2021-12-20T00:00:00-05:00</updated><id>/2021/12/20/readings</id><content type="html" xml:base="/2021/12/20/readings.html">&lt;blockquote&gt;
+  &lt;p&gt;List of things I’ve been reading and dates of “completion”. Only adding things that I’ve read thoroughly and understand beyond a superficial level.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;!--more--&gt;
+&lt;h3 id=&quot;12252021&quot;&gt;12/25/2021&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Accelerating Rescaled Gradient Descent: Fast Optimization of Smooth Functions &lt;a href=&quot;https://arxiv.org/abs/1902.08825&quot;&gt;[link]&lt;/a&gt;]&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;12232021&quot;&gt;12/23/2021&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tensor Algebra and Tensor Analysis for Engineers, Chapter 1: Vectors and Tensors in a Finite-Dimensional Space &lt;a href=&quot;https://link.springer.com/content/pdf/10.1007%2F978-3-319-16342-0.pdf&quot;&gt;[link]&lt;/a&gt;]&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;12222021&quot;&gt;12/22/2021&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Dual Space Preconditioning for Gradient Descent &lt;a href=&quot;https://arxiv.org/abs/1902.02257v4&quot;&gt;[link]&lt;/a&gt;]&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;12202021&quot;&gt;12/20/2021&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Monte Carlo Statistical Methods, Chapter 6: Markov Chains &lt;a href=&quot;https://mcube.lab.nycu.edu.tw/~cfung/docs/books/robert2004monte_carlo_statistical_methods.pdf&quot;&gt;[link]&lt;/a&gt;]&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Stewart Slocum</name></author><summary type="html">List of things I’ve been reading and dates of “completion”. Only adding things that I’ve read thoroughly and understand beyond a superficial level.</summary></entry><entry><title type="html">Hutchinson’s Diagonal Estimator</title><link href="/2021/08/07/hutchinson's-diagonal-estimator.html" rel="alternate" type="text/html" title="Hutchinson’s Diagonal Estimator" /><published>2021-08-07T00:00:00-04:00</published><updated>2021-08-07T00:00:00-04:00</updated><id>/2021/08/07/hutchinson's-diagonal-estimator</id><content type="html" xml:base="/2021/08/07/hutchinson's-diagonal-estimator.html">&lt;blockquote&gt;
   &lt;p&gt;In this post, we’ll take a look at a method of approximating large Hessian matrices using a stochastic diagonal estimator. Hutchinson’s method can be used for optimization and loss-landscape analysis in deep neural networks.&lt;/p&gt;
 &lt;/blockquote&gt;
 
