@@ -1,11 +1,146 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-05-18T17:05:38-04:00</updated><id>/feed.xml</id><title type="html">Stewy Slocum</title><subtitle>Stewy Slocum's website</subtitle><author><name>Stewart Slocum</name></author><entry><title type="html">Readings</title><link href="/2021/12/20/readings.html" rel="alternate" type="text/html" title="Readings" /><published>2021-12-20T00:00:00-05:00</published><updated>2021-12-20T00:00:00-05:00</updated><id>/2021/12/20/readings</id><content type="html" xml:base="/2021/12/20/readings.html">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2023-01-11T19:56:02-05:00</updated><id>/feed.xml</id><title type="html">Stewy Slocum</title><subtitle>Stewy Slocum's website</subtitle><author><name>Stewart Slocum</name></author><entry><title type="html">Readings</title><link href="/2021/12/20/readings.html" rel="alternate" type="text/html" title="Readings" /><published>2021-12-20T00:00:00-05:00</published><updated>2021-12-20T00:00:00-05:00</updated><id>/2021/12/20/readings</id><content type="html" xml:base="/2021/12/20/readings.html">&lt;blockquote&gt;
   &lt;p&gt;List of things I’ve been reading. Only adding things that I’ve read thoroughly and understand beyond a superficial level.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;!--more--&gt;
+&lt;h3 id=&quot;11422&quot;&gt;11/4/22&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Reinforcement Learning by Reward-Weighted Regression for Operational Space Control &lt;a href=&quot;https://is.mpg.de/fileadmin/user_upload/files/publications/ICML2007-Peters_4493%5B0%5D.pdf&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;10222022&quot;&gt;10/22/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Precis of The Limits of Morality &lt;a href=&quot;https://cpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/724/files/2016/01/Precis-of-The-Limits-of-Morality-1344xg3.pdf&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;10202022&quot;&gt;10/20/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;CHOMP: Covariant Hamiltonian optimization for motion planning &lt;a href=&quot;https://journals.sagepub.com/doi/10.1177/0278364913488805&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;10192022&quot;&gt;10/19/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Probabilistic Plan Recognition using off-the-shelf Classical Planners &lt;a href=&quot;https://www.dtic.upf.edu/~hgeffner/pr-aaai-2010.pdf&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;10182022&quot;&gt;10/18/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Mastering the Game of No-Press Diplomacy via Human-Regularized Reinforcement Learning and Planning &lt;a href=&quot;https://arxiv.org/abs/2210.05492&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Modeling Strong and Human-Like Gameplay with KL-Regularized Search &lt;a href=&quot;https://arxiv.org/abs/2112.07544&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;10172022&quot;&gt;10/17/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Human-Level Performance in No-Press Diplomacy via Equilibrium Search &lt;a href=&quot;https://arxiv.org/abs/2010.02923&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;No Press Diplomacy: Modeling Multi-Agent Gameplay &lt;a href=&quot;https://arxiv.org/abs/1909.02128&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;10112022&quot;&gt;10/11/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Policy Gradient Bayesian Robust Optimization for Imitation Learning &lt;a href=&quot;https://arxiv.org/abs/2106.06499&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;10102022&quot;&gt;10/10/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Bayesian Inverse Reinforcement Learning &lt;a href=&quot;https://www.aaai.org/Papers/IJCAI/2007/IJCAI07-416.pdf&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;9192022&quot;&gt;9/19/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Experimental Study of Inequality and Unpredictability in an Artificial Cultural Market &lt;a href=&quot;https://www.science.org/doi/10.1126/science.1121066&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;9182022&quot;&gt;9/18/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;An Extensible Interactive Interface for Reward Design &lt;a href=&quot;https://arxiv.org/abs/1906.02641&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;9172022&quot;&gt;9/17/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Social Simulacra: Creating Populated Prototypes for Social Computing Systems &lt;a href=&quot;https://arxiv.org/abs/2208.04024&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;9132022&quot;&gt;9/13/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Retrospective on the 2021 BASALT Competition on Learning From Human Feedback &lt;a href=&quot;https://arxiv.org/abs/2204.07123&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;9122022&quot;&gt;9/12/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Learning with Not Enough Data Part 3: Data Generation &lt;a href=&quot;https://lilianweng.github.io/posts/2022-04-15-data-gen/&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;9102022&quot;&gt;9/10/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Simulators on Lesswrong &lt;a href=&quot;https://www.lesswrong.com/posts/vJFdjigzmcXMhNTsx/simulators&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;952022&quot;&gt;9/5/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Trust Region Policy Optimization &lt;a href=&quot;https://arxiv.org/abs/1502.05477&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;8292022&quot;&gt;8/29/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Reward-rational (implicit) choice: A unifying formalism for reward learning &lt;a href=&quot;https://arxiv.org/abs/2002.04833&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;The MineRL BASALT Competition on Learning from Human Feedback &lt;a href=&quot;https://arxiv.org/abs/2107.01969&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;8282022&quot;&gt;8/28/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Active Preference-Based Learning of Reward Functions &lt;a href=&quot;https://rss2017.lids.mit.edu/program/papers/04/&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;8242022&quot;&gt;8/24/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Deep Reinforcement Learning from Human Preferences &lt;a href=&quot;https://arxiv.org/abs/1706.03741&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;8162022&quot;&gt;8/16/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Too many cooks: Bayesian inference for coordinating multi-agent collaboration &lt;a href=&quot;https://arxiv.org/abs/2003.11778&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;8152022&quot;&gt;8/15/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Open Problems in Cooperative AI &lt;a href=&quot;https://arxiv.org/abs/2012.08630&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;8112022&quot;&gt;8/11/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Distribution-Free Predictive Inference for Regression &lt;a href=&quot;https://arxiv.org/abs/1604.04173&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Aaditya Ramdas’ Tutorial Talk on Conformal Prediction &lt;a href=&quot;https://synapse.math.univ-toulouse.fr/s/KDcWmmU9j9zk0rm&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;8102022&quot;&gt;8/10/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Improving Reproducibility in Machine Learning Research &lt;a href=&quot;https://www.jmlr.org/papers/volume22/20-303/20-303.pdf&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;892022&quot;&gt;8/9/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;A tutorial on conformal prediction &lt;a href=&quot;https://arxiv.org/abs/0706.3188&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;862022&quot;&gt;8/6/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Beyond Bayesian and Frequentists &lt;a href=&quot;https://jsteinhardt.stat.berkeley.edu/files/stats-essay.pdf&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;5202022&quot;&gt;5/20/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;The Neuro-Symbolic Concept Learner: Interpreting Scenes, Words, and Sentences From Natural Supervision &lt;a href=&quot;https://arxiv.org/abs/1904.12584&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;5192022&quot;&gt;5/19/2022&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Neural-Symbolic VQA: Disentangling Reasoning from Vision and Language Understanding &lt;a href=&quot;https://arxiv.org/abs/1810.02338v2&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h3 id=&quot;5182022&quot;&gt;5/18/2022&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Curiosity-driven Exploration by Self-supervised Prediction &lt;a href=&quot;https://arxiv.org/abs/1705.05363&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;VIME: Variational Information Maximizing Exploration &lt;a href=&quot;https://arxiv.org/abs/1605.09674&quot;&gt;[link]&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;5172022&quot;&gt;5/17/2022&lt;/h3&gt;
