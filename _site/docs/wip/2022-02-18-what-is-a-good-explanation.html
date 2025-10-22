@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    
+      
+
+
+
+
+
+
+    
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>What is a Good Explanation? Epistemological Insights for Interpretable Machine Learning</title>
+    <meta name="title" property="og:title" content="What is a Good Explanation? Epistemological Insights for Interpretable Machine Learning">
+    <meta name="description" property="og:description" content="Stewy Slocum&#39;s website">
+
+    <link rel="shortcut icon" href="/assets/images/favicon.png">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="canonical" href="/wip/2022-02-18-what-is-a-good-explanation.html">
+
+    <!-- For Latex -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LJGHV07M45"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-LJGHV07M45');
+    </script>
+
+    <!-- For Facebook share button -->
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+    <div class="wrapper">
+        
+        <a class="site-title" href="/">
+            <img src="/assets/images/S.png" height="50px" style="display: none; position: relative; top: -5px; right: -7px"/>
+            Stewy Slocum
+        </a>
+
+        <!--
+        <nav class="site-nav">
+            <a class="page-link" href="/">&#127968; Home</a>
+            <a class="page-link" href="/writing.html">&#9997; Writing</a>
+        </nav>
+        -->
+
+    </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">What is a Good Explanation? Epistemological Insights for Interpretable Machine Learning</h1>
+    <p class="post-meta">
+
+      <time datetime="2022-02-18T00:00:00-08:00" itemprop="datePublished">
+        
+        Feb 18, 2022
+      </time>
+
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        by <span itemprop="name">Stewart Slocum</span>
+      </span>
+
+      <span>
+        
+          
+          <a class="post-tag" href="/tag/optimization"><nobr>optimization</nobr>&nbsp;</a>
+        
+      </span>
+      <!--
+      <span class="share-buttons">
+        <span class="share-button"><a class="twitter-share-button" href="https://twitter.com/share" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></span>
+
+        <span class="share-button"><span class="fb-like" data-href="/wip/2022-02-18-what-is-a-good-explanation.html" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></span></span>
+      </span>
+      <div style="clear: both;"/>
+      -->
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <blockquote>
+  <p>In this post, I provide an epistemological perspective on what defines a good explanation.</p>
+</blockquote>
+
+<!--more-->
+
+<p>In recent years, there has a been a large (and justified) increase of interest in developing interpretable machine learning methods. Besides just being a useful property of ML systems, it is a necessary requirement for safe application of ML to high-stakes decision-making. Taking a step back further, model transparency will likely be a key ingredient in solutions to the more general problem of <a href="https://en.wikipedia.org/wiki/AI_alignment">AI alignment</a> (great intro <a href="https://80000hours.org/podcast/episodes/paul-christiano-ai-alignment-solutions/">here</a>), although there remain <a href="https://docs.google.com/document/d/1FbTuRvC4TFWzGYerTKpBU7FJlyvjeOvVYF2uYNFSlOc/edit#heading=h.n1wk9bxo847o">questions about how well this will scale</a>.</p>
+
+<p>Methods for interpretable deep learning can be separated into those that seek to explain existing models (<em>post-hoc methods</em>) and those that build models that are <em>interpretable by design</em>. The majority of the work in the field has consisted of post-hoc methods, which are generally more convenient to apply and do not lead to performance reductions. However, these methods come with little guarantee that their generated explanations are faithful to the underlying model’s decision-making process. Even the more principled post-hoc methods like SHAP <a class="citation" href="#lundberg2017unified">(Lundberg &amp; Lee, 2017)</a> can be caused to generate arbitrary explanations for an input using adversarial attacks <a class="citation" href="#slack2020fooling">(Slack et al., 2020)</a>. Models that are interpretable by design seek to remedy these issues, since they have access to the causal factors that lead to the final prediction. However, even out of these methods, there is not a unified consensus as to what a faithful and useful explanation is: i.e. they each satisfy different definitions of faithful and useful.</p>
+
+<p>In this post, I will take a step back from machine learning and provide an epistemological perspective on what defines a good explanation. This has applications to machine learning but also to explaining, understanding, and arguing things generally.</p>
+
+<p><br /><br /></p>
+
+<hr />
+
+<p><br />
+Now let’s take a break with this landscape by Rembrandt</p>
+
+<p><img src="/assets/images/the-mill.jpg" /></p>
+
+<p class="center"><strong>The Mill</strong></p>
+
+<p class="center">Courtesy National Gallery of Art, Washington</p>
+
+<h2 id="references">References</h2>
+
+<ol class="bibliography"><li><span id="lundberg2017unified">Lundberg, S. M., &amp; Lee, S.-I. (2017). A unified approach to interpreting model predictions. <i>Advances in Neural Information Processing Systems</i>, <i>30</i>.</span></li>
+<li><span id="slack2020fooling">Slack, D., Hilgard, S., Jia, E., Singh, S., &amp; Lakkaraju, H. (2020). Fooling lime and shap: Adversarial attacks on post hoc explanation methods. <i>Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society</i>, 180–186.</span></li></ol>
+
+  </div>
+
+
+  <div class="page-navigation">
+    
+
+    
+  </div>
+
+  
+    <div id="disqus_thread"></div>
+<script>
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://stewyslocum.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<noscript>
+    Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+  
+
+</article>
+
+      </div>
+    </main>
+
+    <div style="clear: both;"/>
+<footer class="site-footer">
+    <!--Built with <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> and <a href="https://github.com/jekyll/minima/" target="_blank">minima</a> | -->
+    <a href="https://github.com/stewy33/stewy33.github.io/" target="_blank">View on Github</a>
+</footer>
+
+
+  </body>
+
+</html>
