@@ -18,3 +18,8 @@ kramdown:
   input: GFM
   auto_ids: true
   syntax_highlighter: rouge
+
+sass:
+  quiet_deps: true
+  silenceDeprecations:
+    - import
